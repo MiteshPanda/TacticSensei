@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { Search, Menu, X, LogIn } from "lucide-react";
+import { Search, Menu, X, LogIn, LogOut, User } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 const navLinks = [
   { href: "/academy", label: "Academy", icon: "📚" },
@@ -18,16 +19,37 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { user, profile, loading, signOut } = useAuth();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Search functionality can be wired up later
       console.log("Searching for:", searchQuery);
     }
   };
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/");
+  };
+
+  // Get avatar URL from user metadata (Google OAuth often uses avatar_url or picture) or profile
+  const avatarUrl =
+    user?.user_metadata?.avatar_url ||
+    user?.user_metadata?.picture ||
+    profile?.avatar_url;
+
+  // Get user initials for avatar fallback
+  const displayName =
+    user?.user_metadata?.full_name ||
+    user?.user_metadata?.name ||
+    profile?.display_name ||
+    user?.email;
+
+  const userInitial = displayName?.[0]?.toUpperCase() || "U";
 
   return (
     <nav
@@ -88,11 +110,56 @@ export default function Navbar() {
 
           <ThemeToggle />
 
-          {/* Login Button - Desktop */}
-          <button className="btn-primary hidden items-center gap-2 px-4 py-2 text-xs sm:flex">
-            <LogIn className="h-3.5 w-3.5" />
-            Login
-          </button>
+          {/* Auth Button - Desktop */}
+          {!loading && (
+            <>
+              {user ? (
+                <div className="hidden sm:flex items-center gap-2">
+                  {/* Profile Avatar */}
+                  <Link
+                    href="/profile"
+                    id="nav-profile"
+                    className="flex items-center gap-2 rounded-xl px-2 py-1.5 text-xs font-medium transition-all hover:bg-background-secondary group"
+                  >
+                    {avatarUrl ? (
+                      <img
+                        src={avatarUrl}
+                        alt={user.user_metadata?.full_name || "Profile"}
+                        className="h-8 w-8 rounded-full border-2 border-accent/30 object-cover group-hover:border-accent transition-all"
+                      />
+                    ) : (
+                      <div className="h-8 w-8 rounded-full bg-accent flex items-center justify-center text-white text-sm font-bold border-2 border-accent/30 group-hover:border-accent transition-all">
+                        {userInitial}
+                      </div>
+                    )}
+                    <span className="text-foreground-muted group-hover:text-foreground">
+                      {displayName?.split(" ")[0] || "Profile"}
+                    </span>
+                  </Link>
+
+                  {/* Sign Out */}
+                  <button
+                    onClick={handleSignOut}
+                    id="nav-signout"
+                    className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium text-foreground-muted hover:bg-background-secondary hover:text-foreground transition-all"
+                    title="Sign out"
+                  >
+                    <LogOut className="h-3.5 w-3.5" />
+                    <span className="hidden xl:inline">Sign Out</span>
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href="/auth"
+                  id="nav-login"
+                  className="btn-primary hidden items-center gap-2 px-4 py-2 text-xs sm:flex"
+                >
+                  <LogIn className="h-3.5 w-3.5" />
+                  Login
+                </Link>
+              )}
+            </>
+          )}
 
           {/* Mobile Menu Toggle Button */}
           <button
@@ -159,15 +226,51 @@ export default function Navbar() {
 
           {/* Mobile Action Area */}
           <div className="border-t border-border-light pt-6">
-            <button className="btn-primary w-full py-4 text-center text-sm">
-              Join the Academy
-            </button>
-            <p className="mt-4 text-center text-xs text-foreground-muted">
-              Already have an account?{" "}
-              <button className="text-accent font-semibold hover:underline">
-                Sign In
-              </button>
-            </p>
+            {user ? (
+              <div className="space-y-3">
+                {/* Mobile Profile */}
+                <Link
+                  href="/profile"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-4 rounded-xl px-4 py-3.5 text-base font-semibold text-foreground hover:bg-background-secondary transition-all"
+                >
+                  {avatarUrl ? (
+                    <img
+                      src={avatarUrl}
+                      alt="Profile"
+                      className="h-9 w-9 rounded-full border-2 border-accent/30 object-cover"
+                    />
+                  ) : (
+                    <div className="h-9 w-9 rounded-full bg-accent flex items-center justify-center text-white text-sm font-bold">
+                      {userInitial}
+                    </div>
+                  )}
+                  <span>
+                    {user.user_metadata?.full_name || user.email || "My Profile"}
+                  </span>
+                </Link>
+
+                {/* Mobile Sign Out */}
+                <button
+                  onClick={() => { handleSignOut(); setMobileOpen(false); }}
+                  className="btn-primary w-full py-4 text-center text-sm flex items-center justify-center gap-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link
+                  href="/auth"
+                  onClick={() => setMobileOpen(false)}
+                  className="btn-primary w-full py-4 text-center text-sm flex items-center justify-center gap-2"
+                >
+                  <LogIn className="h-4 w-4" />
+                  Login / Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
