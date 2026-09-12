@@ -60,7 +60,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 
 // ─── Provider ───────────────────────────────────────────────────────────────
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "https://learnfootball-backend.onrender.com/api/v1";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
