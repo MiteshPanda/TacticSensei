@@ -185,25 +185,10 @@ SAFETY RULES:
         full_prompt = f"{system_prompt}\n\n{context_str}\n\nUser Question: {message}\nAI Tutor Response:"
 
         try:
-            # Dynamically select the best available model
-            model_name = "gemini-2.5-flash"  # Fallback default
-            try:
-                available_models = [m.name for m in genai.list_models()]
-                preferred_models = [
-                    "models/gemini-2.5-flash",
-                    "models/gemini-2.0-flash",
-                    "models/gemini-flash-latest",
-                    "models/gemini-1.5-flash",
-                ]
-                for pm in preferred_models:
-                    if pm in available_models:
-                        model_name = pm
-                        break
-            except Exception:
-                pass
-
-            model = genai.GenerativeModel(model_name)
-            response = model.generate_content(full_prompt)
+            model = genai.GenerativeModel("gemini-2.5-flash")
+            import asyncio
+            loop = asyncio.get_running_loop()
+            response = await loop.run_in_executor(None, lambda: model.generate_content(full_prompt))
             ai_text = response.text.strip()
 
             return {"ai_response": ai_text, "sources": sources}
@@ -212,3 +197,4 @@ SAFETY RULES:
                 "ai_response": f"An error occurred while connecting to the Gemini AI API: {str(e)}",
                 "sources": [],
             }
+
