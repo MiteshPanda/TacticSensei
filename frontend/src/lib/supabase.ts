@@ -6,18 +6,12 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-anon-key";
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL || "https://cvynboivxplkckfieewc.supabase.co";
 
-if (
-  !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-) {
-  console.warn(
-    "[Supabase] NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY " +
-      "is not set. Auth features will not work until these are configured in .env.local."
-  );
-}
+const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2eW5ib2l2eHBsa2NrZmllZXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM3MDQ2MzUsImV4cCI6MjA5OTI4MDYzNX0.QWwq02BrBRXOzv6CKMr4weBXMsEEPVtGYwZyVRMdUWQ";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

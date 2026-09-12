@@ -105,8 +105,15 @@ function TutorContent() {
     setInputValue("");
     setIsTyping(true);
 
+    let envUrl = (process.env.NEXT_PUBLIC_API_URL || "").trim().replace(/\/+$/, "");
+    if (!envUrl) {
+      envUrl = "https://learnfootball-backend.onrender.com/api/v1";
+    } else if (!envUrl.includes("/api/v1")) {
+      envUrl = `${envUrl}/api/v1`;
+    }
+    const apiBase = envUrl;
+
     try {
-      const apiBase = (process.env.NEXT_PUBLIC_API_URL || "https://learnfootball-backend.onrender.com/api/v1").replace(/\/+$/, "");
       const response = await fetch(`${apiBase}/tutor/chat`, {
         method: "POST",
         headers: {
@@ -135,13 +142,14 @@ function TutorContent() {
           sources: data.sources,
         },
       ]);
-    } catch {
+    } catch (err: any) {
+      console.error("AI Tutor API fetch error:", err);
       setMessages((prev) => [
         ...prev,
         {
           id: Math.random().toString(),
           sender: "bot",
-          text: "⚠️ **Backend Unreachable**\n\nThe LearnFootball backend is currently starting up or unreachable. Please wait a few seconds (Render free instances spin up on request) and try again.",
+          text: `⚠️ **Backend Unreachable** (${err?.message || "Network Error"})\n\nThe LearnFootball backend is currently starting up or unreachable. Please wait a few seconds (Render free instances spin up on request) and try again.`,
           timestamp: new Date(),
         },
       ]);
