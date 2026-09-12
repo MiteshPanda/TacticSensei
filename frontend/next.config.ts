@@ -3,11 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Proxy API requests to FastAPI backend during development only
   async rewrites() {
-    if (process.env.NODE_ENV === "production") return [];
+    const backendUrl = (process.env.NEXT_PUBLIC_API_URL || "https://learnfootball-backend.onrender.com")
+      .replace(/\/api\/v1\/?$/, "");
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:8000/api/:path*",
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },

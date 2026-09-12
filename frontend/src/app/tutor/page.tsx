@@ -106,7 +106,8 @@ function TutorContent() {
     setIsTyping(true);
 
     try {
-      const response = await fetch("/api/v1/tutor/chat", {
+      const apiBase = (process.env.NEXT_PUBLIC_API_URL || "https://learnfootball-backend.onrender.com/api/v1").replace(/\/+$/, "");
+      const response = await fetch(`${apiBase}/tutor/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,13 +135,13 @@ function TutorContent() {
           sources: data.sources,
         },
       ]);
-    } catch (err: any) {
+    } catch {
       setMessages((prev) => [
         ...prev,
         {
           id: Math.random().toString(),
           sender: "bot",
-          text: "⚠️ **System Offline**\n\nThe LearnFootball backend is currently unreachable. Make sure the FastAPI backend is running on `http://localhost:8000` and check your network connection.",
+          text: "⚠️ **Backend Unreachable**\n\nThe LearnFootball backend is currently starting up or unreachable. Please wait a few seconds (Render free instances spin up on request) and try again.",
           timestamp: new Date(),
         },
       ]);
