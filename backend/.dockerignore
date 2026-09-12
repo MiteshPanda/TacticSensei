@@ -1,0 +1,41 @@
+# Python / cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Virtual envs
+venv/
+.venv/
+env/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Development cache / data cache
+app/data/cache/
+*.cache
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Migrations (already in image via COPY . .)
+# Keep scripts/migrations
+
+# Git
+.git/
+.gitignore

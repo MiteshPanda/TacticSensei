@@ -1,0 +1,45 @@
+# fly.toml — LearnFootball Web (Next.js frontend)
+# Generated for Fly.io deployment — free tier
+
+app = "learnfootball-web"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+  # NEXT_PUBLIC_* vars are baked in at build time via --build-arg
+  # Pass them when deploying:
+  #   fly deploy \
+  #     --build-arg NEXT_PUBLIC_API_URL=https://learnfootball-api.fly.dev/api/v1 \
+  #     --build-arg NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co \
+  #     --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
+
+[env]
+  NODE_ENV = "production"
+  PORT     = "3000"
+  HOSTNAME = "0.0.0.0"
+
+[http_service]
+  internal_port       = 3000
+  force_https         = true
+  auto_stop_machines  = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    type       = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  size   = "shared-cpu-1x"
+  memory = "256mb"
+
+[checks]
+  [checks.health]
+    grace_period = "15s"
+    interval     = "30s"
+    method       = "GET"
+    path         = "/"
+    port         = 3000
+    timeout      = "10s"
+    type         = "http"

@@ -1,0 +1,40 @@
+# fly.toml — LearnFootball API (FastAPI backend)
+# Generated for Fly.io deployment — free tier
+
+app = "learnfootball-api"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  APP_ENV     = "production"
+  APP_DEBUG   = "false"
+  PORT        = "8000"
+  # CORS_ORIGINS must be set via: fly secrets set CORS_ORIGINS=https://learnfootball-web.fly.dev
+
+[http_service]
+  internal_port       = 8000
+  force_https         = true
+  auto_stop_machines  = false   # keep alive on free tier
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    type       = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  size   = "shared-cpu-1x"
+  memory = "256mb"
+
+[checks]
+  [checks.health]
+    grace_period = "10s"
+    interval     = "30s"
+    method       = "GET"
+    path         = "/health"
+    port         = 8000
+    timeout      = "5s"
+    type         = "http"

@@ -1,275 +1,251 @@
 """
-LearnFootball - Database Seeding Script
-=======================================
-Reads the three static JSON datasets from backend/app/data/ and upserts
-every record into the Supabase PostgreSQL database via the SQLAlchemy session.
+LearnFootball - Database Seeding Script (Supabase REST API version)
+====================================================================
+Uses the Supabase Python client (supabase-py) with your SERVICE_ROLE_KEY
+to insert records — no direct PostgreSQL connection required.
 
-Run from the project root:
-    python backend/scripts/seed_database.py
-
-Or from the backend directory:
+Run from the backend directory:
     python scripts/seed_database.py
 """
 
 import json
-import os
 import sys
-import uuid
 from pathlib import Path
 
 # ── Path setup ────────────────────────────────────────────────────────────────
-BACKEND_DIR = Path(__file__).resolve().parent.parent        # …/backend/
+BACKEND_DIR = Path(__file__).resolve().parent.parent   # …/backend/
 DATA_DIR = BACKEND_DIR / "app" / "data"
-sys.path.insert(0, str(BACKEND_DIR))                        # make 'app' importable
+sys.path.insert(0, str(BACKEND_DIR))
 
 from dotenv import load_dotenv
 load_dotenv(BACKEND_DIR / ".env")
 
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
+import os
+from supabase import create_client, Client
 
-from app.core.config import get_settings
-from app.models.models import (
-    Base,
-    CoachProfile,
-    GlossaryTerm,
-    Lesson,
-    PlayerProfile,
-    Quiz,
-    QuizQuestion,
-    TeamProfile,
-)
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 
-settings = get_settings()
-
-# ── Engine: use Supabase PostgreSQL connection ────────────────────────────────
-# Build the postgres connection string from Supabase details
-# Format: postgresql+psycopg2://<user>:<pass>@<host>:5432/postgres
-def _get_pg_url() -> str:
-    """Build a PostgreSQL URL from Supabase env vars."""
-    supabase_url = settings.SUPABASE_URL  # e.g. https://xxxx.supabase.co
-    service_key = settings.SUPABASE_SERVICE_ROLE_KEY
-
-    if not supabase_url or not service_key:
-        raise RuntimeError(
-            "SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set in backend/.env"
-        )
-
-    # Extract project ref from URL: https://<ref>.supabase.co
-    ref = supabase_url.replace("https://", "").split(".")[0]
-    host = f"db.{ref}.supabase.co"
-
-    # Supabase PostgreSQL connection: user=postgres, password=service_role_key
-    # (for direct DB connections use the DB password, not the JWT key)
-    # Note: We fall back to the DATABASE_URL env var if it's a postgres:// URL
-    db_url = os.environ.get("DATABASE_URL", "")
-    if db_url.startswith("postgresql") or db_url.startswith("postgres://"):
-        return db_url.replace("postgres://", "postgresql://", 1)
-
-    print(
-        "\n⚠️  No PostgreSQL DATABASE_URL found.\n"
-        "   Add to backend/.env:\n"
-        "   DATABASE_URL=postgresql://postgres:<DB_PASSWORD>@db.<ref>.supabase.co:5432/postgres\n"
-        "   (DB password is set when you created the Supabase project — NOT the service role key)\n"
-    )
+if not SUPABASE_URL or not SUPABASE_KEY:
+    print("❌  SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set in backend/.env")
     sys.exit(1)
 
-
-engine = create_engine(_get_pg_url(), echo=False, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
-def _load_json(filename: str) -> dict | list:
+def _load_json(filename: str):
     path = DATA_DIR / filename
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# SEED FUNCTIONS
-# ─────────────────────────────────────────────────────────────────────────────
+def _existing_slugs(table: str) -> set[str]:
+    """Fetch all slugs already in the table so we can skip duplicates."""
+    res = supabase.table(table).select("slug").execute()
+    return {row["slug"] for row in (res.data or [])}
 
-def seed_glossary(session) -> int:
-    """Seed glossary_terms from glossary_db.json."""
+
+def _batch_insert(table: str, rows: list[dict], batch_size: int = 50) -> int:
+    """Upsert rows in batches (skip duplicates); returns count of rows processed."""
+    inserted = 0
+    for i in range(0, len(rows), batch_size):
+        chunk = rows[i : i + batch_size]
+        # upsert: on conflict with the unique slug column, do nothing
+        supabase.table(table).upsert(chunk, on_conflict="slug", ignore_duplicates=True).execute()
+        inserted += len(chunk)
+    return inserted
+
+
+# ── Seed functions ────────────────────────────────────────────────────────────
+
+def seed_glossary() -> int:
     data: list[dict] = _load_json("glossary_db.json")
-    count = 0
+    existing = _existing_slugs("glossary_terms")
+
+    rows = []
     for item in data:
         slug = item.get("slug") or item.get("term", "").lower().replace(" ", "-")
-        existing = session.query(GlossaryTerm).filter_by(slug=slug).first()
-        if existing:
+        if slug in existing:
             continue
-        term = GlossaryTerm(
-            id=uuid.uuid4(),
-            term=item.get("term", ""),
-            slug=slug,
-            category=item.get("category"),
-            definition=item.get("definition", ""),
-            advanced_explanation=item.get("advanced_explanation") or item.get("advancedExplanation"),
-        )
-        session.add(term)
-        count += 1
-    session.commit()
-    return count
+        rows.append({
+            "term":                 item.get("term", ""),
+            "slug":                 slug,
+            "category":             item.get("category"),
+            "definition":           item.get("definition", ""),
+            "advanced_explanation": item.get("advanced_explanation")
+                                    or item.get("advancedExplanation"),
+        })
+
+    return _batch_insert("glossary_terms", rows) if rows else 0
 
 
-def seed_profiles(session) -> dict:
-    """Seed player, coach, and team profiles from profiles_static.json."""
+def seed_profiles() -> dict:
     data = _load_json("profiles_static.json")
     counts = {"players": 0, "coaches": 0, "teams": 0}
 
+    # ── Players ──────────────────────────────────────────────────────────────
+    existing_players = _existing_slugs("player_profiles")
+    player_rows = []
     for p in data.get("players", []):
-        if session.query(PlayerProfile).filter_by(slug=p["slug"]).first():
+        if p["slug"] in existing_players:
             continue
-        session.add(PlayerProfile(
-            id=uuid.uuid4(),
-            api_id=p.get("api_id"),
-            name=p["name"],
-            slug=p["slug"],
-            active=p.get("active", True),
-            position=p.get("position"),
-            country=p.get("country"),
-            country_name=p.get("countryName"),
-            bio=p.get("bio"),
-            style=p.get("style"),
-            stats=p.get("stats", []),
-            timeline=p.get("timeline", []),
-            trophies=p.get("trophies", []),
-        ))
-        counts["players"] += 1
+        player_rows.append({
+            "api_id":       p.get("api_id"),
+            "name":         p["name"],
+            "slug":         p["slug"],
+            "active":       p.get("active", True),
+            "position":     p.get("position"),
+            "country":      p.get("country"),
+            "country_name": p.get("countryName"),
+            "bio":          p.get("bio"),
+            "style":        p.get("style"),
+            "stats":        p.get("stats", []),
+            "timeline":     p.get("timeline", []),
+            "trophies":     p.get("trophies", []),
+        })
+    if player_rows:
+        counts["players"] = _batch_insert("player_profiles", player_rows)
 
+    # ── Coaches ──────────────────────────────────────────────────────────────
+    existing_coaches = _existing_slugs("coach_profiles")
+    coach_rows = []
     for c in data.get("coaches", []):
-        if session.query(CoachProfile).filter_by(slug=c["slug"]).first():
+        if c["slug"] in existing_coaches:
             continue
-        session.add(CoachProfile(
-            id=uuid.uuid4(),
-            api_id=c.get("api_id"),
-            name=c["name"],
-            slug=c["slug"],
-            active=c.get("active", True),
-            philosophy=c.get("philosophy"),
-            club=c.get("club"),
-            emoji=c.get("emoji"),
-            country=c.get("country"),
-            country_name=c.get("countryName"),
-            bio=c.get("bio"),
-            stats=c.get("stats", []),
-            timeline=c.get("timeline", []),
-            trophies=c.get("trophies", []),
-        ))
-        counts["coaches"] += 1
+        coach_rows.append({
+            "api_id":       c.get("api_id"),
+            "name":         c["name"],
+            "slug":         c["slug"],
+            "active":       c.get("active", True),
+            "philosophy":   c.get("philosophy"),
+            "club":         c.get("club"),
+            "emoji":        c.get("emoji"),
+            "country":      c.get("country"),
+            "country_name": c.get("countryName"),
+            "bio":          c.get("bio"),
+            "stats":        c.get("stats", []),
+            "timeline":     c.get("timeline", []),
+            "trophies":     c.get("trophies", []),
+        })
+    if coach_rows:
+        counts["coaches"] = _batch_insert("coach_profiles", coach_rows)
 
+    # ── Teams ────────────────────────────────────────────────────────────────
+    existing_teams = _existing_slugs("team_profiles")
+    team_rows = []
     for t in data.get("teams", []):
-        if session.query(TeamProfile).filter_by(slug=t["slug"]).first():
+        if t["slug"] in existing_teams:
             continue
-        session.add(TeamProfile(
-            id=uuid.uuid4(),
-            name=t["name"],
-            slug=t["slug"],
-            active=t.get("active", True),
-            flag=t.get("flag"),
-            titles=t.get("titles"),
-            style=t.get("style"),
-            squad=t.get("squad", []),
-            stats=t.get("stats", []),
-            timeline=t.get("timeline", []),
-            trophies=t.get("trophies", []),
-            world_cup_squad=t.get("worldCupSquad", []),
-        ))
-        counts["teams"] += 1
+        team_rows.append({
+            "name":            t["name"],
+            "slug":            t["slug"],
+            "active":          t.get("active", True),
+            "flag":            t.get("flag"),
+            "titles":          t.get("titles"),
+            "style":           t.get("style"),
+            "squad":           t.get("squad", []),
+            "stats":           t.get("stats", []),
+            "timeline":        t.get("timeline", []),
+            "trophies":        t.get("trophies", []),
+            "world_cup_squad": t.get("worldCupSquad", []),
+        })
+    if team_rows:
+        counts["teams"] = _batch_insert("team_profiles", team_rows)
 
-    session.commit()
     return counts
 
 
-def seed_curriculum(session) -> dict:
-    """Seed lessons and quizzes from curriculum_db.json."""
+def seed_curriculum() -> dict:
     data = _load_json("curriculum_db.json")
     counts = {"lessons": 0, "quizzes": 0, "questions": 0}
 
-    # curriculum_db.json has TWO shapes depending on key:
-    # 1. data["curriculum"] → list of modules with a "lessons" array (metadata only)
-    # 2. data[<slug>] → dict with full rich content per lesson
-
+    existing_lessons = _existing_slugs("lessons")
     curriculum_modules: list[dict] = data.get("curriculum", [])
+
+    lesson_rows = []
+    quiz_map: list[tuple[str, list]] = []   # (lesson_slug, quiz_questions)
 
     for module in curriculum_modules:
         module_slug = module.get("slug", "")
         for lesson_meta in module.get("lessons", []):
             slug = lesson_meta.get("slug", "")
-            if not slug:
-                continue
-            if session.query(Lesson).filter_by(slug=slug).first():
+            if not slug or slug in existing_lessons:
                 continue
 
-            # Try to find the full rich content in data[slug]
             rich = data.get(slug, {})
             content_sections = rich.get("sections", [])
             quiz_questions_raw = rich.get("quizQuestions", [])
 
-            lesson = Lesson(
-                id=uuid.uuid4(),
-                module_slug=module_slug,
-                slug=slug,
-                title=lesson_meta.get("title", rich.get("title", slug)),
-                description=lesson_meta.get("description", rich.get("description")),
-                reading_time=lesson_meta.get("readingTime", 5),
-                difficulty=lesson_meta.get("difficulty", "beginner"),
-                emoji=lesson_meta.get("emoji"),
-                category=lesson_meta.get("category"),
-                content=content_sections,
-            )
-            session.add(lesson)
-            session.flush()  # get lesson.id
-            counts["lessons"] += 1
+            lesson_rows.append({
+                "module_slug":   module_slug,
+                "slug":          slug,
+                "title":         lesson_meta.get("title", rich.get("title", slug)),
+                "description":   lesson_meta.get("description", rich.get("description")),
+                "reading_time":  lesson_meta.get("readingTime", 5),
+                "difficulty":    lesson_meta.get("difficulty", "beginner"),
+                "emoji":         lesson_meta.get("emoji"),
+                "category":      lesson_meta.get("category"),
+                "content":       content_sections,
+            })
 
             if quiz_questions_raw:
-                quiz = Quiz(
-                    id=uuid.uuid4(),
-                    lesson_id=lesson.id,
-                    title=f"{lesson.title} Quiz",
-                )
-                session.add(quiz)
-                session.flush()
-                counts["quizzes"] += 1
+                quiz_map.append((slug, quiz_questions_raw))
 
-                for order, q in enumerate(quiz_questions_raw):
-                    session.add(QuizQuestion(
-                        id=uuid.uuid4(),
-                        quiz_id=quiz.id,
-                        question=q.get("question", ""),
-                        options=q.get("options", []),
-                        correct_index=q.get("correctIndex", 0),
-                        explanation=q.get("explanation"),
-                        order=order,
-                    ))
-                    counts["questions"] += 1
+    # Insert lessons
+    if lesson_rows:
+        counts["lessons"] = _batch_insert("lessons", lesson_rows)
 
-    session.commit()
+    # Insert quizzes + questions (need lesson IDs from DB)
+    for lesson_slug, questions_raw in quiz_map:
+        res = supabase.table("lessons").select("id").eq("slug", lesson_slug).execute()
+        if not res.data:
+            continue
+        lesson_id = res.data[0]["id"]
+
+        quiz_res = supabase.table("quizzes").insert({
+            "lesson_id": lesson_id,
+            "title": f"Quiz",
+        }).execute()
+        if not quiz_res.data:
+            continue
+        quiz_id = quiz_res.data[0]["id"]
+        counts["quizzes"] += 1
+
+        q_rows = [
+            {
+                "quiz_id":       quiz_id,
+                "question":      q.get("question", ""),
+                "options":       q.get("options", []),
+                "correct_index": q.get("correctIndex", 0),
+                "explanation":   q.get("explanation"),
+                "order":         i,
+            }
+            for i, q in enumerate(questions_raw)
+        ]
+        counts["questions"] += _batch_insert("quiz_questions", q_rows)
+
     return counts
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+# ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    print("🚀 LearnFootball Database Seeder")
-    print("=" * 50)
+    print("🚀 LearnFootball Database Seeder (via Supabase REST API)")
+    print("=" * 55)
 
-    with SessionLocal() as session:
-        print("\n📖 Seeding Glossary Terms…")
-        g = seed_glossary(session)
-        print(f"   ✅ {g} new glossary terms inserted")
+    print("\n📖 Seeding Glossary Terms…")
+    g = seed_glossary()
+    print(f"   ✅ {g} new glossary terms inserted")
 
-        print("\n👤 Seeding Player / Coach / Team Profiles…")
-        p = seed_profiles(session)
-        print(f"   ✅ Players: {p['players']}, Coaches: {p['coaches']}, Teams: {p['teams']}")
+    print("\n👤 Seeding Player / Coach / Team Profiles…")
+    p = seed_profiles()
+    print(f"   ✅ Players: {p['players']}, Coaches: {p['coaches']}, Teams: {p['teams']}")
 
-        print("\n📚 Seeding Curriculum (Lessons + Quizzes)…")
-        c = seed_curriculum(session)
-        print(f"   ✅ Lessons: {c['lessons']}, Quizzes: {c['quizzes']}, Questions: {c['questions']}")
+    print("\n📚 Seeding Curriculum (Lessons + Quizzes)…")
+    c = seed_curriculum()
+    print(f"   ✅ Lessons: {c['lessons']}, Quizzes: {c['quizzes']}, Questions: {c['questions']}")
 
     print("\n🎉 Seeding complete!")
 

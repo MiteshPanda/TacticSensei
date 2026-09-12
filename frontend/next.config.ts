@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Proxy API requests to FastAPI backend during development
+  // Proxy API requests to FastAPI backend during development only
   async rewrites() {
+    if (process.env.NODE_ENV === "production") return [];
     return [
       {
         source: "/api/:path*",
@@ -23,6 +24,9 @@ const nextConfig: NextConfig = {
 
   // Enable React strict mode
   reactStrictMode: true,
+
+  // Automatically create a standalone folder that copies only necessary files for production
+  output: "standalone",
 };
 
 export default nextConfig;

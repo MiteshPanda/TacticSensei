@@ -287,12 +287,10 @@ async def seed_database(
 
     try:
         from scripts.seed_database import seed_glossary, seed_profiles, seed_curriculum
-        from app.core.database import SessionLocal
 
-        with SessionLocal() as session:
-            g = seed_glossary(session)
-            p = seed_profiles(session)
-            c = seed_curriculum(session)
+        g = seed_glossary()
+        p = seed_profiles()
+        c = seed_curriculum()
 
         return {
             "status": "ok",
