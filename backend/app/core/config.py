@@ -32,7 +32,13 @@ class Settings(BaseSettings):
     # App
     APP_ENV: str = "development"
     APP_DEBUG: bool = True
-    CORS_ORIGINS: Union[List[str], str] = ["http://localhost:3000"]
+    CORS_ORIGINS: Union[List[str], str] = [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3000",
+        "https://learnfootball-eta.vercel.app",
+        "*",
+    ]
 
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
