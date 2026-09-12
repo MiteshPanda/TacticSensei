@@ -66,8 +66,35 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [favoritesLoading, setFavoritesLoading] = useState(false);
+
+  // ── Profile helpers ────────────────────────────────────────────────────
+
+  const fetchProfile = useCallback(async (accessToken: string) => {
+    setProfileLoading(true);
+    try {
+      const res = await fetch(`${API}/users/me`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setProfile(data);
+      }
+    } catch {
+      // silently ignore network errors
+    } finally {
+      setProfileLoading(false);
+    }
+  }, []);
+
+  const refreshProfile = useCallback(async () => {
+    if (session?.access_token) {
+      await fetchProfile(session.access_token);
+    }
+  }, [session, fetchProfile]);
 
   // ── Favorites helpers ──────────────────────────────────────────────────
 
@@ -163,6 +190,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setFavorites([]);
+    setProfile(null);
   }, []);
 
   // ── Session listener ───────────────────────────────────────────────────
@@ -174,6 +202,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
       if (session?.access_token) {
         fetchFavorites(session.access_token);
+        fetchProfile(session.access_token);
       }
     });
 
@@ -183,14 +212,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUser(newSession?.user ?? null);
         if (newSession?.access_token) {
           fetchFavorites(newSession.access_token);
+          fetchProfile(newSession.access_token);
         } else {
           setFavorites([]);
+          setProfile(null);
         }
       }
     );
 
     return () => subscription.unsubscribe();
-  }, [fetchFavorites]);
+  }, [fetchFavorites, fetchProfile]);
 
   return (
     <AuthContext.Provider
@@ -198,6 +229,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user,
         session,
         loading,
+        profile,
+        profileLoading,
         favorites,
         favoritesLoading,
         signIn,
@@ -207,6 +240,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         toggleFavorite,
         isFavorited,
         refreshFavorites,
+        refreshProfile,
       }}
     >
       {children}
