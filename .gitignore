@@ -54,6 +54,8 @@ coverage.xml
 .mypy_cache/
 .pytest_cache/
 
-# Markdown files
+# Markdown & Project documentation files
 *.md
 !README.md
+PROJECT_INFO.txt
+
