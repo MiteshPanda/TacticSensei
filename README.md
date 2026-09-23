@@ -1,14 +1,14 @@
-# LearnFootball ⚽
+# TacticSensei ⚽
 
 > The easiest way for complete beginners to become knowledgeable football fans.
 
-LearnFootball is an educational football platform designed to help users understand football from the ground up. Whether you're watching your first World Cup, trying to understand football tactics, or exploring the history of legendary players and teams, LearnFootball provides structured learning paths, interactive content, and AI-powered explanations.
+TacticSensei is an educational football platform designed to help users understand football from the ground up. Whether you're watching your first World Cup, trying to understand football tactics, or exploring the history of legendary players and teams, TacticSensei provides structured learning paths, interactive content, and AI-powered explanations.
 
 ## Vision
 
 Most football websites assume users already understand the sport.
 
-LearnFootball is built for people who want to learn:
+TacticSensei is built for people who want to learn:
 
 * Football rules
 * Positions and player roles
