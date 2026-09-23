@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Tactical Concepts | Football Academy | LearnFootball",
+  title: "Tactical Concepts | Football Academy | TacticSensei",
   description:
     "Master football tactics, systems, and philosophies. 106 structured lessons covering attacking setups, defensive blocks, pressing traps, buildup configurations, and positional player roles.",
 };
@@ -163,3 +163,4 @@ export default function TacticsModulePage() {
     </div>
   );
 }
+

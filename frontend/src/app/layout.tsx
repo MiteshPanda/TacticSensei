@@ -24,8 +24,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "LearnFootball — Learn Football From Zero",
-    template: "%s | LearnFootball",
+    default: "TacticSensei — Learn Football Tactics From Zero",
+    template: "%s | TacticSensei",
   },
   description:
     "The easiest way for complete beginners to become knowledgeable football fans. Learn rules, positions, tactics, player stories, and more.",
@@ -39,18 +39,18 @@ export const metadata: Metadata = {
     "what is offside",
     "football glossary",
   ],
-  authors: [{ name: "LearnFootball" }],
+  authors: [{ name: "TacticSensei" }],
   openGraph: {
-    title: "LearnFootball — Learn Football From Zero",
+    title: "TacticSensei — Learn Football Tactics From Zero",
     description:
       "The easiest way for complete beginners to become knowledgeable football fans.",
-    siteName: "LearnFootball",
+    siteName: "TacticSensei",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LearnFootball — Learn Football From Zero",
+    title: "TacticSensei — Learn Football Tactics From Zero",
     description:
       "The easiest way for complete beginners to become knowledgeable football fans.",
   },

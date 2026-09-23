@@ -37,7 +37,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = useCallback(
     (newTheme: Theme) => {
       setThemeState(newTheme);
-      localStorage.setItem("learnfootball-theme", newTheme);
+      localStorage.setItem("tacticsensei-theme", newTheme);
       applyTheme(newTheme);
     },
     [applyTheme]
@@ -49,7 +49,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [resolvedTheme, setTheme]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("learnfootball-theme") as Theme | null;
+    const saved = localStorage.getItem("tacticsensei-theme") as Theme | null;
     const initial = saved || "system";
     setThemeState(initial);
     applyTheme(initial);

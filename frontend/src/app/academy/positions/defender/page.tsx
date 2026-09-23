@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Defender | Football Academy | LearnFootball",
+  title: "Defender | Football Academy | TacticSensei",
   description:
     "Learn all about football defenders — centre-backs, full-backs, and wing-backs. Understand their roles, key skills, and famous players like Virgil van Dijk, Sergio Ramos, and Trent Alexander-Arnold.",
 };
@@ -228,3 +228,4 @@ export default function DefenderPage() {
     </LessonLayout>
   );
 }
+

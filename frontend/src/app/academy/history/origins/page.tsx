@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Origins of Football | Football Academy | LearnFootball",
+  title: "Origins of Football | Football Academy | TacticSensei",
   description:
     "How football was born in Victorian England, codified in 1863, and spread across the entire world to become the most popular sport on the planet.",
 };
@@ -183,3 +183,4 @@ export default function OriginsPage() {
     </LessonLayout>
   );
 }
+

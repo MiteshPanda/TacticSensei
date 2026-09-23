@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "How a Football Match Works | Football Academy | LearnFootball",
+  title: "How a Football Match Works | Football Academy | TacticSensei",
   description:
     "Learn the structure of a football match — the two halves, kick-off rules, goal kicks, throw-ins, corner kicks, injury time, and extra time. Perfect for beginners.",
 };
@@ -213,3 +213,4 @@ export default function HowAMatchWorksPage() {
     </LessonLayout>
   );
 }
+

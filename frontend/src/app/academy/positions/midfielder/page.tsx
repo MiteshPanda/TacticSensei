@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Midfielder | Football Academy | LearnFootball",
+  title: "Midfielder | Football Academy | TacticSensei",
   description:
     "Learn about the midfield engine room — defensive midfielders, central midfielders, and attacking midfielders. Famous examples: Xavi, Iniesta, Kanté, De Bruyne.",
 };
@@ -230,3 +230,4 @@ export default function MidfielderPage() {
     </LessonLayout>
   );
 }
+

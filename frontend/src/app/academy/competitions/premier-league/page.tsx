@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The Premier League | Football Academy | LearnFootball",
+  title: "The Premier League | Football Academy | TacticSensei",
   description:
     "The world's most watched domestic football league — its 1992 founding, format, the Invincibles, the Big Six, and the records that define it.",
 };
@@ -183,3 +183,4 @@ export default function PremierLeaguePage() {
     </LessonLayout>
   );
 }
+

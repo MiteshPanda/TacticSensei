@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "La Liga | Football Academy | LearnFootball",
+  title: "La Liga | Football Academy | TacticSensei",
   description:
     "Spain's top division — the home of Real Madrid and Barcelona, El Clásico, La Masia academy, and Messi's records. Everything about La Liga explained.",
 };
@@ -173,3 +173,4 @@ export default function LaLigaPage() {
     </LessonLayout>
   );
 }
+

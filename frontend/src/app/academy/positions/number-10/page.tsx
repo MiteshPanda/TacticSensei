@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The Number 10 — Classic Playmaker | Football Academy | LearnFootball",
+  title: "The Number 10 — Classic Playmaker | Football Academy | TacticSensei",
   description:
     "Explore the iconic No.10 — the trequartista, playmaker, and creative genius between midfield and attack. Famous examples: Maradona, Zidane, Ronaldinho, Messi. Is the No.10 dying out?",
 };
@@ -260,3 +260,4 @@ export default function Number10Page() {
     </LessonLayout>
   );
 }
+

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!data) return {};
 
   return {
-    title: `${data.title} | Football Academy | LearnFootball`,
+    title: `${data.title} | Football Academy | TacticSensei`,
     description: data.description,
   };
 }

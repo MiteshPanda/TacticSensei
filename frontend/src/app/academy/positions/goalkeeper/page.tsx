@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Goalkeeper | Football Academy | LearnFootball",
+  title: "Goalkeeper | Football Academy | TacticSensei",
   description:
     "Learn everything about the goalkeeper position — shot-stopping, commanding the penalty area, modern distribution, and the sweeper-keeper revolution. Famous GKs: Neuer, Buffon, Alisson.",
 };
@@ -203,3 +203,4 @@ export default function GoalkeeperPage() {
     </LessonLayout>
   );
 }
+

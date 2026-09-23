@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Fouls & Free Kicks | Football Academy | LearnFootball",
+  title: "Fouls & Free Kicks | Football Academy | TacticSensei",
   description:
     "Learn what counts as a foul in football — dangerous tackles, handballs, pushing, direct vs indirect free kicks, and the advantage rule. Clear beginner guide.",
 };
@@ -230,3 +230,4 @@ export default function FoulsPage() {
     </LessonLayout>
   );
 }
+

@@ -68,7 +68,7 @@ export default function Footer() {
         {/* Bottom Row */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border-light pt-8 sm:flex-row">
           <p className="text-xs text-foreground-muted">
-            © {new Date().getFullYear()} LearnFootball. All rights reserved.
+            © {new Date().getFullYear()} TacticSensei. All rights reserved.
           </p>
           <p className="text-xs text-foreground-muted">
             Built with ❤️ for football beginners

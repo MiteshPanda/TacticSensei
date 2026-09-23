@@ -3,7 +3,7 @@ import Link from "next/link";
 import { curriculum, getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Rules of Football | Football Academy | LearnFootball",
+  title: "Rules of Football | Football Academy | TacticSensei",
   description:
     "Learn the official rules of football — from the offside rule to VAR decisions. Beginner-friendly lessons covering match structure, fouls, cards, free kicks, penalties, and more.",
 };
@@ -128,3 +128,4 @@ export default function RulesModulePage() {
     </main>
   );
 }
+

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Formations Module | Football Academy | LearnFootball",
+  title: "Formations Module | Football Academy | TacticSensei",
   description:
     "Discover the most popular football formations — from classic 4-4-2 to modern Pep Guardiola's 3-2-4-1 buildup shape. 15 lessons covering flat, diamond, 3-back, and 5-back systems.",
 };
@@ -145,3 +145,4 @@ export default function FormationsModulePage() {
     </div>
   );
 }
+

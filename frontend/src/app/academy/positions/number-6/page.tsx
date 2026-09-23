@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The Number 6 — Defensive Midfielder | Football Academy | LearnFootball",
+  title: "The Number 6 — Defensive Midfielder | Football Academy | TacticSensei",
   description:
     "Deep dive into the No.6 — the defensive midfielder who anchors every great team. The Makélélé role explained. Famous examples: Claude Makélélé, Sergio Busquets, Casemiro, N'Golo Kanté.",
 };
@@ -233,3 +233,4 @@ export default function Number6Page() {
     </LessonLayout>
   );
 }
+

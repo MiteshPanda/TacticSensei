@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, Clock, BarChart2 } from "lucide-react";
 import { getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Competitions | Football Academy | LearnFootball",
+  title: "Competitions | Football Academy | TacticSensei",
   description:
     "Understand the major football tournaments and leagues — from the FIFA World Cup to the UEFA Champions League, Premier League, and La Liga.",
 };
@@ -139,3 +139,4 @@ export default function CompetitionsModulePage() {
     </div>
   );
 }
+

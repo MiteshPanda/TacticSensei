@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Positions Module | Football Academy | LearnFootball",
+  title: "Positions Module | Football Academy | TacticSensei",
   description:
     "Learn every football position from goalkeeper to false 9. Understand what each role does, the skills required, and famous players who mastered them.",
 };
@@ -276,3 +276,4 @@ export default function PositionsModulePage() {
     </div>
   );
 }
+

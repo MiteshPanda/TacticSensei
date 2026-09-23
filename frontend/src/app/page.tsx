@@ -91,9 +91,9 @@ export default function HomePage() {
 
           {/* Heading */}
           <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up">
-            Learn Football{" "}
+            Master Football{" "}
             <span className="bg-gradient-to-r from-accent via-success to-accent bg-clip-text text-transparent">
-              From Zero
+              Tactics From Zero
             </span>{" "}
             to Confident Fan
           </h1>
@@ -169,7 +169,7 @@ export default function HomePage() {
               Everything You Need to <span className="text-accent">Understand Football</span>
             </h2>
             <p className="mt-4 text-base text-foreground-muted sm:text-lg">
-              From basic rules to advanced tactics — LearnFootball covers it all
+              From basic rules to advanced tactics — TacticSensei covers it all
               in one platform.
             </p>
           </div>
@@ -299,7 +299,7 @@ export default function HomePage() {
                       🤖
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-foreground">LearnFootball AI</h4>
+                      <h4 className="text-sm font-bold text-foreground">TacticSensei AI</h4>
                       <div className="flex items-center gap-1 text-xs text-accent">
                         <span className="relative flex h-2.5 w-2.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>

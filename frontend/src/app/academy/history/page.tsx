@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, Clock, BarChart2 } from "lucide-react";
 import { getModule } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Football History | Football Academy | LearnFootball",
+  title: "Football History | Football Academy | TacticSensei",
   description:
     "Explore the rich history of football — from its origins in Victorian England to the greatest teams and tactical evolutions that shaped the modern game.",
 };
@@ -131,3 +131,4 @@ export default function HistoryModulePage() {
     </div>
   );
 }
+

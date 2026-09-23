@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Yellow & Red Cards | Football Academy | LearnFootball",
+  title: "Yellow & Red Cards | Football Academy | TacticSensei",
   description:
     "Learn how yellow and red cards work in football — what offences earn each card, the two-yellow rule, straight reds, accumulation bans, and the most famous red cards in history.",
 };
@@ -229,3 +229,4 @@ export default function CardsPage() {
     </LessonLayout>
   );
 }
+

@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Free Kicks Explained | Football Academy | LearnFootball",
+  title: "Free Kicks Explained | Football Academy | TacticSensei",
   description:
     "Learn the difference between direct and indirect free kicks in football, how the defensive wall works, set-piece tactics, and famous free kicks like Roberto Carlos's banana kick.",
 };
@@ -211,3 +211,4 @@ export default function FreeKicksPage() {
     </LessonLayout>
   );
 }
+

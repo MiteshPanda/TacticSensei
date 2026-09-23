@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The Number 8 — Box-to-Box Midfielder | Football Academy | LearnFootball",
+  title: "The Number 8 — Box-to-Box Midfielder | Football Academy | TacticSensei",
   description:
     "Learn about the box-to-box midfielder — the No.8 who covers every blade of grass attacking and defending. Famous examples: Steven Gerrard, Frank Lampard, Bryan Robson.",
 };
@@ -237,3 +237,4 @@ export default function Number8Page() {
     </LessonLayout>
   );
 }
+

@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The Offside Rule Explained | Football Academy | LearnFootball",
+  title: "The Offside Rule Explained | Football Academy | TacticSensei",
   description:
     "Understand the offside rule in football — what it means, when it applies, active involvement, VAR offside decisions, and famous offside controversies. Beginner-friendly guide.",
 };
@@ -223,3 +223,4 @@ export default function OffsidePage() {
     </LessonLayout>
   );
 }
+

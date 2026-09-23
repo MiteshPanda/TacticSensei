@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Penalty Kicks Explained | Football Academy | LearnFootball",
+  title: "Penalty Kicks Explained | Football Academy | TacticSensei",
   description:
     "Learn when penalty kicks are awarded, how they work, what happens in a penalty shootout, and the psychology behind taking and saving penalties. Includes England's famous penalty curse.",
 };
@@ -194,3 +194,4 @@ export default function PenaltiesPage() {
     </LessonLayout>
   );
 }
+

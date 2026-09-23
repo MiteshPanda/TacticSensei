@@ -64,7 +64,7 @@ export default function AuthPage() {
         <div className="text-center mb-8">
           <span className="text-5xl block mb-4">🏆</span>
           <h1 className="text-3xl font-bold tracking-tight mb-2">
-            {mode === "signin" ? "Welcome Back" : "Join LearnFootball"}
+            {mode === "signin" ? "Welcome Back" : "Join TacticSensei"}
           </h1>
           <p className="text-foreground-muted">
             {mode === "signin"

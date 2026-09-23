@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Attacker | Football Academy | LearnFootball",
+  title: "Attacker | Football Academy | TacticSensei",
   description:
     "Learn about football attackers — centre forwards, wingers, and second strikers. Famous examples: Ronaldo (R9), Thierry Henry, and Harry Kane. Goal-scoring techniques explained.",
 };
@@ -242,3 +242,4 @@ export default function AttackerPage() {
     </LessonLayout>
   );
 }
+

@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "FIFA World Cup | Football Academy | LearnFootball",
+  title: "FIFA World Cup | Football Academy | TacticSensei",
   description:
     "Everything you need to know about the FIFA World Cup — format, history, records, prize money, and why it is the biggest sporting event on Earth.",
 };
@@ -166,3 +166,4 @@ export default function WorldCupPage() {
     </LessonLayout>
   );
 }
+

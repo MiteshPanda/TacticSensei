@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "UEFA Champions League | Football Academy | LearnFootball",
+  title: "UEFA Champions League | Football Academy | TacticSensei",
   description:
     "Europe's premier club competition — from the 1955 European Cup to the modern Champions League, its greatest nights, records, and unforgettable finals.",
 };
@@ -165,3 +165,4 @@ export default function ChampionsLeaguePage() {
     </LessonLayout>
   );
 }
+

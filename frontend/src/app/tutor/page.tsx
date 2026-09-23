@@ -149,7 +149,7 @@ function TutorContent() {
         {
           id: Math.random().toString(),
           sender: "bot",
-          text: `⚠️ **Backend Unreachable** (${err?.message || "Network Error"})\n\nThe LearnFootball backend is currently starting up or unreachable. Please wait a few seconds (Render free instances spin up on request) and try again.`,
+          text: `⚠️ **Backend Unreachable** (${err?.message || "Network Error"})\n\nThe TacticSensei backend is currently starting up or unreachable. Please wait a few seconds (Render free instances spin up on request) and try again.`,
           timestamp: new Date(),
         },
       ]);

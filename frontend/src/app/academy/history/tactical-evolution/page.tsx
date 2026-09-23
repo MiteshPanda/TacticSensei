@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "How Tactics Evolved | Football Academy | LearnFootball",
+  title: "How Tactics Evolved | Football Academy | TacticSensei",
   description:
     "From the 2-3-5 Pyramid to Tiki-Taka and Gegenpressing — how football's tactical ideas evolved over 120 years and continue to shape the modern game.",
 };
@@ -228,3 +228,4 @@ export default function TacticalEvolutionPage() {
     </LessonLayout>
   );
 }
+

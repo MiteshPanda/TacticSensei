@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "How VAR Works | Football Academy | LearnFootball",
+  title: "How VAR Works | Football Academy | TacticSensei",
   description:
     "Understand VAR (Video Assistant Referee) in football — the 4 reviewable situations, on-field review process, semi-automated offside technology, and why VAR remains controversial.",
 };
@@ -231,3 +231,4 @@ export default function VARPage() {
     </LessonLayout>
   );
 }
+

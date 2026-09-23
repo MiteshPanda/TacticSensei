@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "The False 9 | Football Academy | LearnFootball",
+  title: "The False 9 | Football Academy | TacticSensei",
   description:
     "Understand the False 9 — the striker who drops deep to create confusion and space. History from Hungary 1953 to Messi at Barcelona 2009-2012. Why Guardiola's Barca used it.",
 };
@@ -280,3 +280,4 @@ export default function False9Page() {
     </LessonLayout>
   );
 }
+

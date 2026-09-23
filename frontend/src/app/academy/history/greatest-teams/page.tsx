@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "Greatest Teams Ever | Football Academy | LearnFootball",
+  title: "Greatest Teams Ever | Football Academy | TacticSensei",
   description:
     "The legendary clubs and national teams that defined eras — from Cruyff's Ajax to Guardiola's Barcelona, and everything in between.",
 };
@@ -200,3 +200,4 @@ export default function GreatestTeamsPage() {
     </LessonLayout>
   );
 }
+

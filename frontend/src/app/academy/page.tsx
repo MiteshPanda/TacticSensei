@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, CheckCircle2, Zap } from "lucide-react";
 import { curriculum, totalLessons } from "@/data/academy/curriculum";
 
 export const metadata: Metadata = {
-  title: "Football Academy | LearnFootball",
+  title: "Football Academy | TacticSensei",
   description:
     "Learn football from scratch with structured lessons on rules, positions, formations, tactics, and history. From beginner to tactical expert.",
 };
@@ -160,3 +160,4 @@ export default function AcademyPage() {
     </div>
   );
 }
+

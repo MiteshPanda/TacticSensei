@@ -65,7 +65,7 @@ export default function Navbar() {
         >
           <span className="text-2xl animate-float">⚽</span>
           <span>
-            Learn<span className="text-accent">Football</span>
+            Tactic<span className="text-accent">Sensei</span>
           </span>
         </Link>
 

@@ -3,7 +3,7 @@ import LessonLayout from "@/components/academy/LessonLayout";
 import LessonQuiz, { QuizQuestion } from "@/components/academy/LessonQuiz";
 
 export const metadata: Metadata = {
-  title: "World Cup History | Football Academy | LearnFootball",
+  title: "World Cup History | Football Academy | TacticSensei",
   description:
     "The FIFA World Cup's incredible story — from Uruguay 1930 to Qatar 2022 — featuring the greatest moments, champions, and controversies in tournament history.",
 };
@@ -185,3 +185,4 @@ export default function WorldCupHistoryPage() {
     </LessonLayout>
   );
 }
+
