@@ -129,7 +129,12 @@ Manage:
 * Quizzes
 
 ---
+## Architecture
 
+<img width="1290" height="1226" alt="TacticSensei_Architecture" src="https://github.com/user-attachments/assets/4cbb06c5-dbe3-44ce-8373-f2a7562c74b4" />
+
+
+---
 ## Technology Stack
 
 ### Frontend
