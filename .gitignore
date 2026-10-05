@@ -59,3 +59,6 @@ coverage.xml
 !README.md
 PROJECT_INFO.txt
 
+# Excalidraw diagrams
+*.excalidraw
+

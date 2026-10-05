@@ -185,7 +185,7 @@ export default function HomePage() {
               >
                 {/* Decorative background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-40 transition-opacity group-hover:opacity-60`} />
-                
+
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-background-card text-3xl shadow-sm transition-transform duration-300 group-hover:scale-110">
@@ -261,7 +261,7 @@ export default function HomePage() {
                 significance of the &quot;Total Football&quot; system? Our AI Tutor is trained
                 on football rules, histories, and coaching manuals to answer all your queries.
               </p>
-              
+
               <ul className="mt-8 space-y-4">
                 {[
                   "Natural language tactical analysis",
