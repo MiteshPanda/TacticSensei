@@ -131,7 +131,8 @@ Manage:
 ---
 ## Architecture
 
-<img width="1290" height="1226" alt="TacticSensei_Architecture" src="https://github.com/user-attachments/assets/4cbb06c5-dbe3-44ce-8373-f2a7562c74b4" />
+<img width="1728" height="2760" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/8132eb54-3a25-4711-a98d-d09becc3b5b1" />
+
 
 
 ---
