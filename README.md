@@ -134,6 +134,9 @@ Manage:
 <img width="1728" height="2760" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/8132eb54-3a25-4711-a98d-d09becc3b5b1" />
 
 
+### Detailed Architecture
+
+<img width="8192" height="3539" alt="TacticSensei_DetailArch" src="https://github.com/user-attachments/assets/fd167c90-ef96-4047-a95d-f8ff5b865da2" />
 
 ---
 ## Technology Stack
