@@ -79,7 +79,7 @@ export default function GlossaryPage() {
             </span>
           </h1>
           <p className="mt-4 text-base leading-relaxed text-foreground-muted">
-            Explore {glossaryTerms.length} essential football terms explained clearly. Filter by category, search instantly, or ask the AI tutor to explain any concept!
+            Explore {glossaryTerms.length} essential football terms explained clearly. Filter by category, search instantly, or ask the AI Sensei to explain any concept!
           </p>
         </div>
 
@@ -253,7 +253,7 @@ export default function GlossaryPage() {
             {/* Actions Footer */}
             <div className="mt-7 pt-4 border-t border-border-light flex flex-col gap-2">
               <Link
-                href={`/tutor?q=Explain+the+concept+of+${encodeURIComponent(selectedTerm.term)}`}
+                href={`/sensei?q=Explain+the+concept+of+${encodeURIComponent(selectedTerm.term)}`}
                 className="btn-primary w-full py-3 flex items-center justify-center gap-2 green-glow text-sm"
               >
                 <MessageSquare className="h-4 w-4" />

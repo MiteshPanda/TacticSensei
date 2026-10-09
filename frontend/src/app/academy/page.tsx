@@ -43,8 +43,8 @@ export default function AcademyPage() {
               Start from the Beginning
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/tutor" className="btn-secondary px-8 py-3.5">
-              🤖 Ask the AI Tutor
+            <Link href="/sensei" className="btn-secondary px-8 py-3.5">
+              🤖 Ask the AI Sensei
             </Link>
           </div>
         </div>

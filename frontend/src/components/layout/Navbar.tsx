@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/coaches", label: "Coaches", icon: "📋" },
   { href: "/glossary", label: "Glossary", icon: "📖" },
   { href: "/predictor", label: "Predictor", icon: "🏆" },
-  { href: "/tutor", label: "AI Tutor", icon: "🤖" },
+  { href: "/sensei", label: "AI Sensei", icon: "🤖" },
 ];
 
 export default function Navbar() {

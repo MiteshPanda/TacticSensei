@@ -31,10 +31,10 @@ const features = [
   },
   {
     icon: "🤖",
-    title: "AI Football Tutor",
+    title: "AI Football Sensei",
     description:
       "Ask any football question and get beginner-friendly explanations powered by AI.",
-    href: "/tutor",
+    href: "/sensei",
     gradient: "from-violet-500/10 to-purple-500/10",
     glow: "purple-glow",
   },
@@ -116,12 +116,12 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="/tutor"
-              id="cta-ask-tutor"
+              href="/sensei"
+              id="cta-ask-sensei"
               className="btn-secondary w-full px-8 py-4 text-base sm:w-auto hover:green-glow"
             >
               <span className="text-lg">🤖</span>
-              Ask the AI Tutor
+              Ask the AI Sensei
             </Link>
           </div>
 
@@ -237,9 +237,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== AI TUTOR SECTION (STITCH-INSPIRED RESPONSIVE REDESIGN) ====== */}
+      {/* ====== AI SENSEI SECTION (STITCH-INSPIRED RESPONSIVE REDESIGN) ====== */}
       <section
-        id="ai-tutor-highlight"
+        id="ai-sensei-highlight"
         className="relative overflow-hidden bg-background-secondary/30 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 dark:bg-background-secondary/5"
       >
         {/* Glow Effects */}
@@ -258,7 +258,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-6 text-base leading-relaxed text-foreground-muted sm:text-lg">
                 Struggling to understand the Offside rule? Curious about the historical
-                significance of the &quot;Total Football&quot; system? Our AI Tutor is trained
+                significance of the &quot;Total Football&quot; system? Our AI Sensei is trained
                 on football rules, histories, and coaching manuals to answer all your queries.
               </p>
 
@@ -277,10 +277,10 @@ export default function HomePage() {
 
               <div className="mt-10">
                 <Link
-                  href="/tutor"
+                  href="/sensei"
                   className="btn-primary px-8 py-4 text-base shadow-lg green-glow inline-flex"
                 >
-                  Try the AI Tutor
+                  Try the AI Sensei
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -318,7 +318,7 @@ export default function HomePage() {
                         🤖
                       </div>
                       <div className="rounded-2xl rounded-tl-none bg-background-secondary p-3.5 text-xs leading-relaxed text-foreground-secondary dark:bg-background-secondary/40">
-                        Hello! I&apos;m your AI Football Tutor. Ask me any football question, like rules, tactical setups, or player roles!
+                        Hello! I&apos;m your AI Football Sensei. Ask me any football question, like rules, tactical setups, or player roles!
                       </div>
                     </div>
 
@@ -337,7 +337,7 @@ export default function HomePage() {
                       <div className="flex-1 rounded-2xl rounded-tl-none bg-background-secondary p-3.5 text-xs leading-relaxed text-foreground-secondary dark:bg-background-secondary/40">
                         A &quot;Low Block&quot; is a defensive strategy where a team defends very deep in their own half, prioritizing central compactness. The goal is to deny space behind the defense...
                         <div className="mt-2.5">
-                          <Link href="/tutor" className="inline-flex items-center gap-1 rounded bg-background-card px-2.5 py-1 text-[10px] font-semibold text-accent shadow-sm border border-border-light hover:bg-background-secondary transition-colors">
+                          <Link href="/sensei" className="inline-flex items-center gap-1 rounded bg-background-card px-2.5 py-1 text-[10px] font-semibold text-accent shadow-sm border border-border-light hover:bg-background-secondary transition-colors">
                             Read full explanation <ArrowRight className="h-3 w-3" />
                           </Link>
                         </div>

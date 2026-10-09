@@ -16,7 +16,7 @@ from app.api.endpoints import (
     predictor,
     quiz,
     teams,
-    tutor,
+    sensei,
     users,
 )
 
@@ -28,7 +28,7 @@ api_router.include_router(teams.router)
 api_router.include_router(coaches.router)
 api_router.include_router(glossary.router)
 api_router.include_router(predictor.router)
-api_router.include_router(tutor.router)
+api_router.include_router(sensei.router)
 api_router.include_router(quiz.router)
 api_router.include_router(users.router)
 api_router.include_router(favorites.router)

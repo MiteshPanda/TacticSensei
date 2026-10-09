@@ -89,15 +89,15 @@ export default function LessonLayout({
               </nav>
             </div>
 
-            {/* Ask AI Tutor */}
+            {/* Ask AI Sensei */}
             <Link
-              href={`/tutor?q=${encodeURIComponent(`Explain ${title}`)}`}
+              href={`/sensei?q=${encodeURIComponent(`Explain ${title}`)}`}
               className="mt-4 flex items-center gap-3 rounded-2xl border border-accent/30 bg-accent-light/50 p-4 transition-all hover:border-accent hover:bg-accent-light dark:bg-accent-light/10"
             >
               <span className="text-2xl">🤖</span>
               <div>
                 <p className="text-sm font-semibold text-foreground">Still confused?</p>
-                <p className="text-xs text-foreground-muted">Ask the AI Tutor</p>
+                <p className="text-xs text-foreground-muted">Ask the AI Sensei</p>
               </div>
               <ChevronRight className="ml-auto h-4 w-4 text-accent" />
             </Link>
