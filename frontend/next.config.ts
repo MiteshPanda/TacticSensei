@@ -1,6 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/tutor",
+        destination: "/sensei",
+        permanent: true,
+      },
+      {
+        source: "/tutor/:path*",
+        destination: "/sensei/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   // Proxy API requests to FastAPI backend during development only
   async rewrites() {
     const backendUrl = (process.env.NEXT_PUBLIC_API_URL || "https://learnfootball-backend.onrender.com")
