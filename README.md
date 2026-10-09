@@ -18,7 +18,7 @@ TacticSensei is built for people who want to learn:
 * Competitions and tournaments
 * Football terminology
 
-The platform combines curated educational content, interactive visualizations, and an AI Football Tutor to create the ultimate football learning experience.
+The platform combines curated educational content, interactive visualizations, and an AI Football Sensei to create the ultimate football learning experience.
 
 ---
 
@@ -38,7 +38,7 @@ Structured learning modules covering:
 
 ---
 
-### AI Football Tutor
+### AI Football Sensei
 
 Ask football-related questions and receive beginner-friendly or advanced explanations.
 
@@ -169,7 +169,7 @@ Manage:
 
 * Retrieval-Augmented Generation (RAG)
 * Football Knowledge Base
-* AI Football Tutor
+* AI Football Sensei
 
 ---
 
