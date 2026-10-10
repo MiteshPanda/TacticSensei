@@ -62,3 +62,7 @@ PROJECT_INFO.txt
 # Excalidraw diagrams
 *.excalidraw
 
+# Claude Skills
+.agents/skills/frontend-design/
+.aider-desk/skills/frontend-design/
+.claude/skills/frontend-design/
