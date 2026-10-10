@@ -397,3 +397,7 @@ select:focus-visible {
   box-shadow: 0 0 40px -10px rgba(82, 183, 136, 0.35);
 }
 
+
+/* --- Swipe decks --- */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

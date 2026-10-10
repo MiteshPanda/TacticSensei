@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, CheckCircle2, MessageSquare, Send, Award, Users, Trophy, BookOpen } from "lucide-react";
+import TacticsPitch from "@/components/home/TacticsPitch";
+import { ArrowRight, Sparkles, CheckCircle2, Send } from "lucide-react";
 
 const features = [
   {
@@ -71,87 +72,34 @@ export default function HomePage() {
   return (
     <>
       {/* ====== HERO SECTION ====== */}
-      <section
-        id="hero"
-        className="relative overflow-hidden bg-background px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-8"
-      >
-        {/* Background decorative elements */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-accent/5 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-accent/5 blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/3 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-5xl text-center">
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-light/50 px-4 py-2 text-sm font-medium text-accent dark:bg-accent-light/10 animate-fade-in">
-            <span className="text-base animate-bounce">⚽</span>
-            Football education for everyone
-          </div>
-
-          {/* Heading */}
-          <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up">
-            Master Football{" "}
-            <span className="bg-gradient-to-r from-accent via-success to-accent bg-clip-text text-transparent">
-              Tactics From Zero
-            </span>{" "}
-            to Confident Fan
-          </h1>
-
-          {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground-muted sm:text-lg md:text-xl animate-fade-in-up stagger-2">
-            The easiest and most engaging way for someone with no football
-            background to understand rules, positions, tactics, players, and
-            tournaments — step by step.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up stagger-3">
-            <Link
-              href="/academy"
-              id="cta-start-learning"
-              className="btn-primary w-full px-8 py-4 text-base sm:w-auto animate-pulse-glow"
-            >
-              Start Learning
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/sensei"
-              id="cta-ask-sensei"
-              className="btn-secondary w-full px-8 py-4 text-base sm:w-auto hover:green-glow"
-            >
-              <span className="text-lg">🤖</span>
-              Ask the AI Sensei
-            </Link>
-          </div>
-
-          {/* Quick stats */}
-          <div className="mx-auto mt-16 max-w-4xl px-4 animate-fade-in-up stagger-4">
-            <div className="rounded-2xl border border-border-light bg-background-secondary/40 p-6 backdrop-blur-sm dark:bg-background-card/40">
-              <div className="grid grid-cols-2 gap-y-8 divide-y divide-border-light/10 divide-x divide-border-light/10 sm:grid-cols-4 sm:divide-y-0">
-                {[
-                  { value: "50+", label: "Lessons", icon: <BookOpen className="h-5 w-5 text-accent" /> },
-                  { value: "100+", label: "Players", icon: <Users className="h-5 w-5 text-accent" /> },
-                  { value: "20", label: "Teams", icon: <Trophy className="h-5 w-5 text-accent" /> },
-                  { value: "100+", label: "Glossary Terms", icon: <Award className="h-5 w-5 text-accent" /> },
-                ].map((stat, idx) => (
-                  <div
-                    key={stat.label}
-                    className={`flex flex-col items-center gap-2 ${idx > 0 && idx % 2 === 0 ? "border-t border-border-light/10 pt-4 sm:border-t-0 sm:pt-0" : ""}`}
-                  >
-                    <div className="flex items-center gap-1.5">
-                      {stat.icon}
-                      <span className="text-2xl font-bold text-accent sm:text-3xl">
-                        {stat.value}
-                      </span>
-                    </div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-foreground-muted">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+      <section id="hero" className="bg-background px-4 pb-20 pt-12 sm:px-6 sm:pb-28 sm:pt-20 lg:px-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <h1 className="max-w-xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl animate-fade-in-up">
+              Learn football by moving the players yourself.
+            </h1>
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-foreground-muted sm:text-lg animate-fade-in-up stagger-2">
+              Pick a formation, drag the pieces, and see why coaches set teams up the way they do.
+              Rules, positions and tactics are explained from zero, then go as deep as you like.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row animate-fade-in-up stagger-3">
+              <Link href="/academy" id="cta-start-learning" className="btn-primary px-8 py-4 text-base">
+                Start learning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/sensei" id="cta-ask-sensei" className="btn-secondary px-8 py-4 text-base">
+                Ask the Sensei
+              </Link>
             </div>
+            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-foreground-muted animate-fade-in-up stagger-4">
+              <li><strong className="text-foreground">50+</strong> lessons</li>
+              <li><strong className="text-foreground">100+</strong> players</li>
+              <li><strong className="text-foreground">20</strong> teams</li>
+              <li><strong className="text-foreground">100+</strong> glossary terms</li>
+            </ul>
+          </div>
+          <div className="flex justify-center lg:justify-end animate-scale-in stagger-2">
+            <TacticsPitch />
           </div>
         </div>
       </section>
