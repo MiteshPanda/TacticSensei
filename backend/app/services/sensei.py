@@ -1,5 +1,5 @@
 """
-LearnFootball AI - Tutor Service
+TacticSensei AI - Sensei Service
 
 Service that integrates with the Google Gemini API to provide structured,
 context-aware answers to user football questions.
@@ -14,7 +14,7 @@ from app.core.config import get_settings
 settings = get_settings()
 
 
-class TutorService:
+class SenseiService:
     """Service to query the Gemini API with curriculum-informed prompts."""
 
     def __init__(self) -> None:
@@ -122,14 +122,14 @@ class TutorService:
 
         return context_str, sources
 
-    async def get_tutor_response(self, message: str, mode: str = "intermediate") -> dict[str, Any]:
+    async def get_sensei_response(self, message: str, mode: str = "intermediate") -> dict[str, Any]:
         """Queries the Gemini API with the user message, context, and selected mode."""
         self._initialize_api()
 
         if not self.api_initialized or not settings.GEMINI_API_KEY:
             return {
                 "ai_response": (
-                    "I'm sorry, but the AI Tutor is currently in offline demo mode "
+                    "I'm sorry, but the AI Sensei is currently in offline demo mode "
                     "because the `GEMINI_API_KEY` is not configured in the backend `.env` file.\n\n"
                     "Please obtain a free API key from Google AI Studio (https://aistudio.google.com/) "
                     "and update your backend `.env` file to enable live responses."
@@ -158,7 +158,7 @@ class TutorService:
 
         instruction = mode_instructions.get(mode.lower(), mode_instructions["intermediate"])
 
-        system_prompt = f"""You are the LearnFootball AI Tutor, named Tactical Mentor.
+        system_prompt = f"""You are the TacticSensei AI Sensei, named Tactical Mentor.
 Your goal is to help users learn football concepts through natural conversation.
 
 {instruction}
@@ -182,7 +182,7 @@ SAFETY RULES:
 - Keep your tone encouraging, professional, and educational.
 """
 
-        full_prompt = f"{system_prompt}\n\n{context_str}\n\nUser Question: {message}\nAI Tutor Response:"
+        full_prompt = f"{system_prompt}\n\n{context_str}\n\nUser Question: {message}\nAI Sensei Response:"
 
         try:
             model = genai.GenerativeModel("gemini-2.5-flash")

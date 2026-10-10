@@ -1,23 +1,23 @@
 """
-LearnFootball API - AI Tutor Endpoints
+TacticSensei API - AI Sensei Endpoints
 
-Endpoints for the AI-powered football tutor chat.
+Endpoints for the AI-powered football sensei chat.
 """
 
 from typing import Any
 
 from fastapi import APIRouter, status
-from app.services.tutor import TutorService
+from app.services.sensei import SenseiService
 
-router = APIRouter(prefix="/tutor", tags=["AI Tutor"])
-tutor_service = TutorService()
+router = APIRouter(prefix="/sensei", tags=["AI Sensei"])
+sensei_service = SenseiService()
 
 
 @router.post(
     "/chat",
     status_code=status.HTTP_200_OK,
-    summary="Send a chat message to the AI tutor",
-    response_description="AI tutor response",
+    summary="Send a chat message to the AI sensei",
+    response_description="AI sensei response",
 )
 async def chat(payload: dict[str, Any]) -> dict:
     """
@@ -27,7 +27,7 @@ async def chat(payload: dict[str, Any]) -> dict:
     user_message = payload.get("message", "")
     mode = payload.get("mode", "intermediate")
 
-    response_data = await tutor_service.get_tutor_response(user_message, mode)
+    response_data = await sensei_service.get_sensei_response(user_message, mode)
     return {
         "user_message": user_message,
         "ai_response": response_data["ai_response"],
