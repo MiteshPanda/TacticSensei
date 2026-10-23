@@ -73,7 +73,7 @@
 
 /* --- Dark Mode --- */
 [data-theme="dark"] {
-  --background: #201A23;
+  --background: #000F08;
   --background-secondary: #2A2330;
   --background-card: #2D2633;
   --background-elevated: #352D3B;
