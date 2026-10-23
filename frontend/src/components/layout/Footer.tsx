@@ -16,7 +16,7 @@ const footerLinks = {
   ],
   Tools: [
     { href: "/sensei", label: "AI Football Sensei" },
-    { href: "/predictor", label: "World Cup Predictor" },
+    { href: "/predictor", label: "Predictor" },
     { href: "/compare", label: "Compare" },
   ],
 };

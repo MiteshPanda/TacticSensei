@@ -41,9 +41,9 @@ const features = [
   },
   {
     icon: "🏆",
-    title: "World Cup Predictor",
+    title: "Predictor",
     description:
-      "Build your tournament bracket, simulate outcomes, and compare predictions with the community.",
+      "Simulate the Champions League, Europe's big four leagues and the World Cup",
     href: "/predictor",
     gradient: "from-yellow-500/10 to-amber-500/10",
     glow: "green-glow",

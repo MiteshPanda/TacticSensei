@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/build-logo-manifest.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/build-logo-manifest.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "logos:fetch": "node scripts/fetch-club-logos.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.2",
@@ -24,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.12"
   }
 }
