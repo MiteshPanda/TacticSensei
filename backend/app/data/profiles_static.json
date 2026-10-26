@@ -13,11 +13,11 @@
       "stats": [
         {
           "label": "Goals",
-          "value": "830+"
+          "value": "930+"
         },
         {
           "label": "Assists",
-          "value": "360+"
+          "value": "400+"
         },
         {
           "label": "Ballon d'Or",
@@ -25,7 +25,7 @@
         },
         {
           "label": "App",
-          "value": "1050+"
+          "value": "1170+"
         }
       ],
       "timeline": [
@@ -62,7 +62,7 @@
         },
         {
           "title": "Copa América",
-          "count": 1
+          "count": 2
         },
         {
           "title": "UEFA Champions League",
@@ -87,11 +87,11 @@
       "stats": [
         {
           "label": "Goals",
-          "value": "970+"
+          "value": "980+"
         },
         {
           "label": "Assists",
-          "value": "240+"
+          "value": "290+"
         },
         {
           "label": "Ballon d'Or",
@@ -99,7 +99,7 @@
         },
         {
           "label": "App",
-          "value": "1200+"
+          "value": "1340+"
         }
       ],
       "timeline": [
@@ -156,24 +156,24 @@
       "position": "Forward / Winger",
       "country": "🇫🇷",
       "countryName": "France",
-      "bio": "One of the most exciting talents of his generation, Mbappé burst onto the scene as a teenager and won the FIFA World Cup in 2018, scoring in the final at age 19.",
+      "bio": "One of the most exciting talents of his generation, Mbappé burst onto the scene as a teenager and won the FIFA World Cup in 2018, scoring in the final at age 19. At the 2026 World Cup he became the tournament's all-time top scorer with 22 goals.",
       "style": "Possesses devastating pace, quick dribbling, and lethal composure in 1v1 situations. Mbappé thrives on exploiting high defensive lines, cutting inside from the left wing to curl shots into the far corner.",
       "stats": [
         {
           "label": "Goals",
-          "value": "330+"
+          "value": "450+"
         },
         {
           "label": "Assists",
-          "value": "150+"
+          "value": "170+"
         },
         {
           "label": "World Cup Goals",
-          "value": "12"
+          "value": "22"
         },
         {
           "label": "App",
-          "value": "440+"
+          "value": "580+"
         }
       ],
       "timeline": [
@@ -201,6 +201,11 @@
           "year": "2024",
           "title": "Real Madrid Signing",
           "description": "Completed his highly-anticipated transfer to Real Madrid."
+        },
+        {
+          "year": "2026",
+          "title": "World Cup Scoring Record",
+          "description": "Won a second straight Golden Boot with 10 goals, passing Miroslav Klose and Lionel Messi as the World Cup's all-time top scorer."
         }
       ],
       "trophies": [
@@ -476,7 +481,7 @@
         {
           "year": "1976",
           "title": "Professional Debut at 15",
-          "description": "Debuted for Argentinos Juniors, becoming the youngest player in league history."
+          "description": "Debuted for Argentinos Juniors ten days before his 16th birthday."
         },
         {
           "year": "1982",

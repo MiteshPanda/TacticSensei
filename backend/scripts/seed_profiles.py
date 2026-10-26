@@ -14,10 +14,10 @@ PLAYERS = [
     "bio": "Widely regarded as one of the greatest football players of all time, Messi spent the majority of his professional career at Barcelona, winning a record 8 Ballon d'Or awards and leading Argentina to World Cup glory in 2022.",
     "style": "Known for his low center of gravity, extraordinary close control dribbling, vision, and prolific finishing. Messi operates as a winger, false 9, or central playmaker, using his acceleration and passing range to dictate play and unlock defenses.",
     "stats": [
-      { "label": "Goals", "value": "830+" },
-      { "label": "Assists", "value": "360+" },
+      { "label": "Goals", "value": "930+" },
+      { "label": "Assists", "value": "400+" },
       { "label": "Ballon d'Or", "value": "8" },
-      { "label": "App", "value": "1050+" }
+      { "label": "App", "value": "1170+" }
     ],
     "timeline": [
       { "year": "2004", "title": "Barcelona Debut", "description": "Made his official first-team debut for FC Barcelona at age 17." },
@@ -28,7 +28,7 @@ PLAYERS = [
     ],
     "trophies": [
       { "title": "FIFA World Cup", "count": 1 },
-      { "title": "Copa América", "count": 1 },
+      { "title": "Copa América", "count": 2 },
       { "title": "UEFA Champions League", "count": 4 },
       { "title": "La Liga", "count": 10 }
     ]
@@ -44,10 +44,10 @@ PLAYERS = [
     "bio": "An absolute powerhouse of modern football, Ronaldo has won 5 Ballon d'Or awards and holds the records for most goals scored in the Champions League, European Championship, and international football.",
     "style": "Ronaldo transitioned from a tricky, lightning-fast winger to a physically dominant, elite goalscoring striker. He combines explosive athleticism, aerial ability, and lethal finishing with both feet.",
     "stats": [
-      { "label": "Goals", "value": "970+" },
-      { "label": "Assists", "value": "240+" },
+      { "label": "Goals", "value": "980+" },
+      { "label": "Assists", "value": "290+" },
       { "label": "Ballon d'Or", "value": "5" },
-      { "label": "App", "value": "1200+" }
+      { "label": "App", "value": "1340+" }
     ],
     "timeline": [
       { "year": "2003", "title": "Manchester United Transfer", "description": "Joined Manchester United from Sporting CP, inheriting the iconic #7 shirt." },
@@ -71,20 +71,21 @@ PLAYERS = [
     "position": "Forward / Winger",
     "country": "🇫🇷",
     "countryName": "France",
-    "bio": "One of the most exciting talents of his generation, Mbappé burst onto the scene as a teenager and won the FIFA World Cup in 2018, scoring in the final at age 19.",
+    "bio": "One of the most exciting talents of his generation, Mbappé burst onto the scene as a teenager and won the FIFA World Cup in 2018, scoring in the final at age 19. At the 2026 World Cup he became the tournament's all-time top scorer with 22 goals.",
     "style": "Possesses devastating pace, quick dribbling, and lethal composure in 1v1 situations. Mbappé thrives on exploiting high defensive lines, cutting inside from the left wing to curl shots into the far corner.",
     "stats": [
-      { "label": "Goals", "value": "330+" },
-      { "label": "Assists", "value": "150+" },
-      { "label": "World Cup Goals", "value": "12" },
-      { "label": "App", "value": "440+" }
+      { "label": "Goals", "value": "450+" },
+      { "label": "Assists", "value": "170+" },
+      { "label": "World Cup Goals", "value": "22" },
+      { "label": "App", "value": "580+" }
     ],
     "timeline": [
       { "year": "2016", "title": "Monaco Breakthrough", "description": "Helped Monaco win the Ligue 1 title and reach the Champions League semi-finals." },
       { "year": "2017", "title": "Paris Saint-Germain Transfer", "description": "Joined PSG in a historic deal, becoming the club's all-time record goalscorer." },
       { "year": "2018", "title": "World Cup Triumph", "description": "Won the World Cup with France, claiming the Best Young Player award." },
       { "year": "2022", "title": "World Cup Final Hat-Trick", "description": "Scored a historic hat-trick in the World Cup Final, winning the Golden Boot." },
-      { "year": "2024", "title": "Real Madrid Signing", "description": "Completed his highly-anticipated transfer to Real Madrid." }
+      { "year": "2024", "title": "Real Madrid Signing", "description": "Completed his highly-anticipated transfer to Real Madrid." },
+      { "year": "2026", "title": "World Cup Scoring Record", "description": "Won a second straight Golden Boot with 10 goals, passing Miroslav Klose and Lionel Messi as the World Cup's all-time top scorer." }
     ],
     "trophies": [
       { "title": "FIFA World Cup", "count": 1 },
@@ -200,7 +201,7 @@ PLAYERS = [
       { "label": "App", "value": "680+" }
     ],
     "timeline": [
-      { "year": "1976", "title": "Professional Debut at 15", "description": "Debuted for Argentinos Juniors, becoming the youngest player in league history." },
+      { "year": "1976", "title": "Professional Debut at 15", "description": "Debuted for Argentinos Juniors ten days before his 16th birthday." },
       { "year": "1982", "title": "Barcelona Transfer", "description": "Joined Barcelona for a world-record fee, winning the Copa del Rey." },
       { "year": "1984", "title": "Napoli Revolution", "description": "Transferred to Napoli, leading them to their only two Serie A titles in history (1987, 1990)." },
       { "year": "1986", "title": "The Goal of the Century", "description": "Scored the famous 'Hand of God' and the 60-meter solo 'Goal of the Century' against England." },
