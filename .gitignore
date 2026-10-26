@@ -66,3 +66,6 @@ PROJECT_INFO.txt
 .agents/skills/frontend-design/
 .aider-desk/skills/frontend-design/
 .claude/skills/frontend-design/
+# Local-only: raw player photo originals and Claude Code settings
+photos/
+.claude/
