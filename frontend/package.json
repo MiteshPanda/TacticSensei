@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "logos:fetch": "node scripts/fetch-club-logos.mjs"
+    "logos:fetch": "node scripts/fetch-club-logos.mjs",
+    "players:fetch": "node scripts/fetch-player-photos.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.2",
