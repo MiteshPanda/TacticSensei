@@ -29,34 +29,6 @@ export interface PlayerProfile {
 
 export const playersData: PlayerProfile[] = [
   {
-    name: "Lionel Messi",
-    slug: "lionel-messi",
-    position: "Forward / Playmaker",
-    country: "🇦🇷",
-    countryName: "Argentina",
-    bio: "Widely regarded as one of the greatest football players of all time, Messi spent the majority of his professional career at Barcelona, winning a record 8 Ballon d'Or awards and leading Argentina to World Cup glory in 2022.",
-    style: "Known for his low center of gravity, extraordinary close control dribbling, vision, and prolific finishing. Messi operates as a winger, false 9, or central playmaker, using his acceleration and passing range to dictate play and unlock defenses.",
-    stats: [
-      { label: "Goals", value: "930+" },
-      { label: "Assists", value: "400+" },
-      { label: "Ballon d'Or", value: "8" },
-      { label: "App", value: "1170+" }
-    ],
-    timeline: [
-      { year: "2004", title: "Barcelona Debut", description: "Made his official first-team debut for FC Barcelona at age 17." },
-      { year: "2009", title: "Sextuple & First Ballon d'Or", description: "Won all six club competitions in a calendar year with Barca, claiming his first Ballon d'Or." },
-      { year: "2012", title: "91-Goal Record", description: "Broke the calendar year goalscoring record, netting 91 goals in all competitions." },
-      { year: "2021", title: "Copa América Champion", description: "Led Argentina to their first major international title in 28 years." },
-      { year: "2022", title: "World Cup Victory", description: "Won the FIFA World Cup in Qatar, claiming the tournament's Golden Ball award." }
-    ],
-    trophies: [
-      { title: "FIFA World Cup", count: 1 },
-      { title: "Copa América", count: 2 },
-      { title: "UEFA Champions League", count: 4 },
-      { title: "La Liga", count: 10 }
-    ]
-  },
-  {
     name: "Cristiano Ronaldo",
     slug: "cristiano-ronaldo",
     position: "Forward",
@@ -82,6 +54,34 @@ export const playersData: PlayerProfile[] = [
       { title: "UEFA Champions League", count: 5 },
       { title: "Premier League", count: 3 },
       { title: "La Liga", count: 2 }
+    ]
+  },
+  {
+    name: "Lionel Messi",
+    slug: "lionel-messi",
+    position: "Forward / Playmaker",
+    country: "🇦🇷",
+    countryName: "Argentina",
+    bio: "Widely regarded as one of the greatest football players of all time, Messi spent the majority of his professional career at Barcelona, winning a record 8 Ballon d'Or awards and leading Argentina to World Cup glory in 2022.",
+    style: "Known for his low center of gravity, extraordinary close control dribbling, vision, and prolific finishing. Messi operates as a winger, false 9, or central playmaker, using his acceleration and passing range to dictate play and unlock defenses.",
+    stats: [
+      { label: "Goals", value: "930+" },
+      { label: "Assists", value: "400+" },
+      { label: "Ballon d'Or", value: "8" },
+      { label: "App", value: "1170+" }
+    ],
+    timeline: [
+      { year: "2004", title: "Barcelona Debut", description: "Made his official first-team debut for FC Barcelona at age 17." },
+      { year: "2009", title: "Sextuple & First Ballon d'Or", description: "Won all six club competitions in a calendar year with Barca, claiming his first Ballon d'Or." },
+      { year: "2012", title: "91-Goal Record", description: "Broke the calendar year goalscoring record, netting 91 goals in all competitions." },
+      { year: "2021", title: "Copa América Champion", description: "Led Argentina to their first major international title in 28 years." },
+      { year: "2022", title: "World Cup Victory", description: "Won the FIFA World Cup in Qatar, claiming the tournament's Golden Ball award." }
+    ],
+    trophies: [
+      { title: "FIFA World Cup", count: 1 },
+      { title: "Copa América", count: 2 },
+      { title: "UEFA Champions League", count: 4 },
+      { title: "La Liga", count: 10 }
     ]
   },
   {
