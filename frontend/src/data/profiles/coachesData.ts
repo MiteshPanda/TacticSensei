@@ -119,20 +119,21 @@ export const coachesData: CoachProfile[] = [
     name: "Jürgen Klopp",
     slug: "jurgen-klopp",
     philosophy: "Gegenpressing / Heavy Metal Football",
-    club: "Liverpool",
+    club: "Germany",
     emoji: "⚡",
     country: "🇩🇪",
     countryName: "Germany",
-    bio: "Known for his charismatic leadership and explosive, fast-tempo football, Klopp resurrected Borussia Dortmund and Liverpool, guiding them to domestic and European glory.",
+    bio: "Known for his charismatic leadership and explosive, fast-tempo football, Klopp resurrected Borussia Dortmund and Liverpool, guiding them to domestic and European glory. In July 2026 he became head coach of Germany.",
     style: "Klopp operates under the 'Heavy Metal Football' style, utilizing high-intensity Gegenpressing (counter-pressing). His teams immediately press the ball upon losing possession, looking to create quick vertical attack transitions.",
     clubsManaged: [
       { name: "Mainz 05", years: "2001-2008" },
       { name: "Borussia Dortmund", years: "2008-2015" },
-      { name: "Liverpool", years: "2015-2024" }
+      { name: "Liverpool", years: "2015-2024" },
+      { name: "Germany National Team", years: "2026-Present" }
     ],
     stats: [
       { label: "Win %", value: "54%" },
-      { label: "Matches", value: "1080" },
+      { label: "Matches", value: "1080+" },
       { label: "UCL Titles", value: "1" },
       { label: "League Titles", value: "3" }
     ],
@@ -141,7 +142,8 @@ export const coachesData: CoachProfile[] = [
       { year: "2011", title: "Dortmund Bundesliga Champion", description: "Won the Bundesliga title with an energetic, young squad, repeating in 2012." },
       { year: "2019", title: "Champions League Winner", description: "Won Liverpool's sixth European Cup, defeating Tottenham in the Madrid final." },
       { year: "2020", title: "Premier League Champion", description: "Led Liverpool to their first league title in 30 years with 99 points." },
-      { year: "2024", title: "Liverpool Farewell", description: "Concluded his legendary tenure at Anfield, winning the EFL Cup in his final season." }
+      { year: "2024", title: "Liverpool Farewell", description: "Concluded his legendary tenure at Anfield, winning the EFL Cup in his final season." },
+      { year: "2026", title: "Germany Head Coach", description: "Appointed Germany head coach after the 2026 World Cup, on a deal running to the 2030 World Cup." }
     ],
     trophies: [
       { title: "UEFA Champions League", count: 1 },
