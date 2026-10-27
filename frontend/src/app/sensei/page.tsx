@@ -430,7 +430,7 @@ function SenseiContent() {
                   <div
                     className={`card w-full max-w-[90%] px-4 py-3.5 text-sm sm:max-w-[80%] ${
                       isUser
-                        ? "bg-accent text-foreground-inverse rounded-tr-none shadow-md dark:bg-accent/80 hover:translate-y-0"
+                        ? "bg-accent text-white rounded-tr-none shadow-md dark:bg-accent/80 hover:translate-y-0"
                         : "bg-background-card rounded-tl-none border-border-light dark:bg-background-card/90 hover:translate-y-0 shadow-sm"
                     }`}
                   >
@@ -438,7 +438,7 @@ function SenseiContent() {
                       <div>
                         <p className="whitespace-pre-wrap">{msg.text}</p>
                         {msg.mode && (
-                          <span className="mt-1 inline-flex items-center gap-1 rounded bg-background-secondary/30 px-1.5 py-0.5 text-[9px] font-semibold text-foreground-inverse/90">
+                          <span className="mt-1 inline-flex items-center gap-1 rounded bg-background-secondary/30 px-1.5 py-0.5 text-[9px] font-semibold text-white/90">
                             Level: {msg.mode.toUpperCase()}
                           </span>
                         )}
@@ -515,7 +515,7 @@ function SenseiContent() {
                         )}
                       </div>
                     )}
-                    <span className="mt-2 block text-[9px] text-foreground-muted opacity-60 text-right select-none">
+                    <span className={`mt-2 block text-[9px] text-right select-none ${isUser ? "text-white/80" : "text-foreground-muted opacity-60"}`}>
                       {mounted ? msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : ""}
                     </span>
                   </div>
