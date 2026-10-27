@@ -40,7 +40,7 @@ export const coachesData: CoachProfile[] = [
     name: "Pep Guardiola",
     slug: "pep-guardiola",
     philosophy: "Positional Play",
-    club: "Manchester City",
+    club: "None, Ex-Manchester City",
     emoji: "🧠",
     country: "🇪🇸",
     countryName: "Spain",
@@ -243,10 +243,10 @@ export const coachesData: CoachProfile[] = [
       { name: "Chelsea", years: "2008-2009" }
     ],
     stats: [
-      { label: "World Cups", value: "1" },
-      { label: "Copa Lib", value: "2" },
+      { label: "Win %", value: "56.4%" },
       { label: "Matches", value: "1200+" },
-      { label: "Win %", value: "56.4%" }
+      { label: "World Cups", value: "1" },
+      { label: "Copa Lib", value: "2" },      
     ],
     timeline: [
       { year: "1995", title: "Copa Libertadores Winner", description: "Won the South American championship with Gremio, repeating in 1999 with Palmeiras." },
