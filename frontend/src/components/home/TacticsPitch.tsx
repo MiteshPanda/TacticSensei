@@ -85,10 +85,10 @@ export default function TacticsPitch() {
             role="tab"
             aria-selected={i === active}
             onClick={() => setActive(i)}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+            className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
               i === active
-                ? "bg-foreground text-foreground-inverse"
-                : "border border-border text-foreground-muted hover:border-accent"
+                ? "border-accent bg-accent/15 text-foreground"
+                : "border-border text-foreground-muted hover:border-accent"
             }`}
           >
             {f.name}

@@ -54,7 +54,7 @@ export default function Navbar() {
   return (
     <nav
       id="main-nav"
-      className="sticky top-0 z-50 w-full border-b border-border-light bg-background/85 backdrop-blur-md transition-colors"
+      className="sticky top-0 z-50 w-full overflow-x-clip border-b border-border-light bg-background/85 backdrop-blur-md transition-colors"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
