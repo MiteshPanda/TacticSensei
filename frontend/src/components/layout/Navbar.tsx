@@ -178,9 +178,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer Overlay. The nav's backdrop-blur makes it the containing block for
+          fixed children, so bottom-0 would collapse the drawer to the nav's height; size it
+          to the viewport explicitly instead. */}
       <div
-        className={`fixed inset-x-0 top-16 bottom-0 z-40 bg-background/95 backdrop-blur-lg transition-all duration-300 lg:hidden border-t border-border-light ${
+        className={`fixed inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto bg-background transition-all duration-300 lg:hidden border-t border-border-light ${
           mobileOpen
             ? "translate-x-0 opacity-100"
             : "translate-x-full opacity-0 pointer-events-none"
