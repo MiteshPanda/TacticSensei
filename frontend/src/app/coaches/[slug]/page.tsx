@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -35,6 +37,10 @@ export default async function CoachDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  // Face crop for the hero circle, if one has been added for this coach.
+  const avatarSrc = `/coaches/avatars/${coach.slug}.webp`;
+  const hasAvatar = existsSync(join(process.cwd(), "public", avatarSrc));
+
   return (
     <section className="bg-background px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div className="mx-auto max-w-5xl">
@@ -52,8 +58,13 @@ export default async function CoachDetailPage({ params }: PageProps) {
         <div className="card mb-8 animate-slide-in-right stagger-1">
           <div className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-center sm:justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-5">
-              <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-accent-light text-5xl animate-float">
-                {coach.emoji}
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-accent-light text-5xl ring-2 ring-accent/40 animate-float">
+                {hasAvatar ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={avatarSrc} alt={coach.name} className="h-full w-full object-cover" />
+                ) : (
+                  coach.emoji
+                )}
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
