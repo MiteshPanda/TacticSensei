@@ -390,6 +390,13 @@ select:focus-visible {
   border: 1px solid rgba(139, 147, 142, 0.15);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .glass-card {
+    background: rgba(36, 29, 39, 0.7);
+    border: 1px solid rgba(139, 147, 142, 0.15);
+  }
+}
+
 .purple-glow {
   box-shadow: 0 0 40px -10px rgba(188, 132, 128, 0.3);
 }

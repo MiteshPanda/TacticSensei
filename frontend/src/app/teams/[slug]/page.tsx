@@ -121,8 +121,8 @@ export default async function TeamDetailPage({ params }: PageProps) {
                     <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-3xs font-semibold uppercase ${player.role === 'Legendary'
                         ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300'
                         : player.role === 'Star'
-                          ? 'bg-accent-light text-accent dark:bg-accent/20 dark:text-accent-light'
-                          : 'bg-info-light text-info dark:bg-info/20 dark:text-info-light'
+                          ? 'bg-accent/15 text-accent'
+                          : 'bg-info/15 text-info'
                       }`}>
                       {player.role}
                     </span>
