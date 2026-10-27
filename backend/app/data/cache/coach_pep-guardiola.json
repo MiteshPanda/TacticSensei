@@ -25,17 +25,17 @@
     },
     {
       "name": "Manchester City",
-      "years": "2016-Present"
+      "years": "2016-2026"
     }
   ],
   "stats": [
     {
       "label": "Win %",
-      "value": "72.5%"
+      "value": "71.6%"
     },
     {
       "label": "Matches",
-      "value": "900+"
+      "value": "1000+"
     },
     {
       "label": "UCL Titles",
@@ -71,6 +71,11 @@
       "year": "2023",
       "title": "Treble Victory",
       "description": "Won the Champions League, Premier League, and FA Cup in a historic campaign."
+    },
+    {
+      "year": "2026",
+      "title": "Manchester City Farewell",
+      "description": "Left City after a decade and 20 trophies, signing off with a domestic cup double."
     }
   ],
   "trophies": [

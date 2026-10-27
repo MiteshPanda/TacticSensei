@@ -626,17 +626,17 @@
         },
         {
           "name": "Manchester City",
-          "years": "2016-Present"
+          "years": "2016-2026"
         }
       ],
       "stats": [
         {
           "label": "Win %",
-          "value": "72.5%"
+          "value": "71.6%"
         },
         {
           "label": "Matches",
-          "value": "900+"
+          "value": "1000+"
         },
         {
           "label": "UCL Titles",
@@ -672,6 +672,11 @@
           "year": "2023",
           "title": "Treble Victory",
           "description": "Won the Champions League, Premier League, and FA Cup in a historic campaign."
+        },
+        {
+          "year": "2026",
+          "title": "Manchester City Farewell",
+          "description": "Left City after a decade and 20 trophies, signing off with a domestic cup double."
         }
       ],
       "trophies": [
@@ -699,7 +704,7 @@
       "active": true,
       "api_id": 2462,
       "philosophy": "Pragmatic Defense & Transitions",
-      "club": "Fenerbahce",
+      "club": "Real Madrid",
       "emoji": "🛡️",
       "country": "🇵🇹",
       "countryName": "Portugal",
@@ -720,21 +725,37 @@
         },
         {
           "name": "Real Madrid",
-          "years": "2010-2013"
+          "years": "2010-2013, 2026-Present"
         },
         {
           "name": "Manchester United",
           "years": "2016-2018"
+        },
+        {
+          "name": "Tottenham Hotspur",
+          "years": "2019-2021"
+        },
+        {
+          "name": "Roma",
+          "years": "2021-2024"
+        },
+        {
+          "name": "Fenerbahçe",
+          "years": "2024-2025"
+        },
+        {
+          "name": "Benfica",
+          "years": "2025-2026"
         }
       ],
       "stats": [
         {
           "label": "Win %",
-          "value": "62.8%"
+          "value": "62.0%"
         },
         {
           "label": "Matches",
-          "value": "1100+"
+          "value": "1250+"
         },
         {
           "label": "UCL Titles",
@@ -770,6 +791,11 @@
           "year": "2022",
           "title": "Roma Conference League Win",
           "description": "Became the first manager to win all three current UEFA club competitions."
+        },
+        {
+          "year": "2026",
+          "title": "Real Madrid Return",
+          "description": "Returned to the Bernabéu for a second spell, 13 years after his first."
         }
       ],
       "trophies": [
@@ -820,11 +846,11 @@
       "stats": [
         {
           "label": "Win %",
-          "value": "61.2%"
+          "value": "54%"
         },
         {
           "label": "Matches",
-          "value": "1000+"
+          "value": "1080"
         },
         {
           "label": "UCL Titles",
@@ -1012,11 +1038,11 @@
       "stats": [
         {
           "label": "Win %",
-          "value": "59.0%"
+          "value": "58.8%"
         },
         {
           "label": "Matches",
-          "value": "680+"
+          "value": "1000+"
         },
         {
           "label": "Europa Leagues",

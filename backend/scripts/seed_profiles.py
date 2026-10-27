@@ -263,11 +263,11 @@ COACHES = [
       { "name": "Barcelona B", "years": "2007-2008" },
       { "name": "Barcelona", "years": "2008-2012" },
       { "name": "Bayern Munich", "years": "2013-2016" },
-      { "name": "Manchester City", "years": "2016-Present" }
+      { "name": "Manchester City", "years": "2016-2026" }
     ],
     "stats": [
-      { "label": "Win %", "value": "72.5%" },
-      { "label": "Matches", "value": "900+" },
+      { "label": "Win %", "value": "71.6%" },
+      { "label": "Matches", "value": "1000+" },
       { "label": "UCL Titles", "value": "3" },
       { "label": "League Titles", "value": "12" }
     ],
@@ -276,7 +276,8 @@ COACHES = [
       { "year": "2009", "title": "Historic Sextuple", "description": "Won all six available club trophies in his debut season, a football first." },
       { "year": "2013", "title": "Bayern Munich Project", "description": "Brought his possession style to Germany, winning three Bundesliga titles in a row." },
       { "year": "2017", "title": "Centurions Season", "description": "Led Manchester City to a record-breaking 100 points in the Premier League." },
-      { "year": "2023", "title": "Treble Victory", "description": "Won the Champions League, Premier League, and FA Cup in a historic campaign." }
+      { "year": "2023", "title": "Treble Victory", "description": "Won the Champions League, Premier League, and FA Cup in a historic campaign." },
+      { "year": "2026", "title": "Manchester City Farewell", "description": "Left City after a decade and 20 trophies, signing off with a domestic cup double." }
     ],
     "trophies": [
       { "title": "UEFA Champions League", "count": 3 },
@@ -291,7 +292,7 @@ COACHES = [
     "active": True,
     "api_id": 2462,
     "philosophy": "Pragmatic Defense & Transitions",
-    "club": "Fenerbahce",
+    "club": "Real Madrid",
     "emoji": "🛡️",
     "country": "🇵🇹",
     "countryName": "Portugal",
@@ -301,12 +302,16 @@ COACHES = [
       { "name": "Porto", "years": "2002-2004" },
       { "name": "Chelsea", "years": "2004-2007, 2013-2015" },
       { "name": "Inter Milan", "years": "2008-2010" },
-      { "name": "Real Madrid", "years": "2010-2013" },
-      { "name": "Manchester United", "years": "2016-2018" }
+      { "name": "Real Madrid", "years": "2010-2013, 2026-Present" },
+      { "name": "Manchester United", "years": "2016-2018" },
+      { "name": "Tottenham Hotspur", "years": "2019-2021" },
+      { "name": "Roma", "years": "2021-2024" },
+      { "name": "Fenerbahçe", "years": "2024-2025" },
+      { "name": "Benfica", "years": "2025-2026" }
     ],
     "stats": [
-      { "label": "Win %", "value": "62.8%" },
-      { "label": "Matches", "value": "1100+" },
+      { "label": "Win %", "value": "62.0%" },
+      { "label": "Matches", "value": "1250+" },
       { "label": "UCL Titles", "value": "2" },
       { "label": "Major Cups", "value": "26" }
     ],
@@ -315,7 +320,8 @@ COACHES = [
       { "year": "2005", "title": "Chelsea Premier League Title", "description": "Won the Premier League in his first season, conceding a record-low 15 goals." },
       { "year": "2010", "title": "Inter Milan Treble", "description": "Won Serie A, Coppa Italia, and UCL, defeating Bayern Munich in the final." },
       { "year": "2012", "title": "Real Madrid La Liga Title", "description": "Broke the La Liga points (100) and goals (121) records to defeat Guardiola's Barca." },
-      { "year": "2022", "title": "Roma Conference League Win", "description": "Became the first manager to win all three current UEFA club competitions." }
+      { "year": "2022", "title": "Roma Conference League Win", "description": "Became the first manager to win all three current UEFA club competitions." },
+      { "year": "2026", "title": "Real Madrid Return", "description": "Returned to the Bernabéu for a second spell, 13 years after his first." }
     ],
     "trophies": [
       { "title": "UEFA Champions League", "count": 2 },
@@ -342,8 +348,8 @@ COACHES = [
       { "name": "Liverpool", "years": "2015-2024" }
     ],
     "stats": [
-      { "label": "Win %", "value": "61.2%" },
-      { "label": "Matches", "value": "1000+" },
+      { "label": "Win %", "value": "54%" },
+      { "label": "Matches", "value": "1080" },
       { "label": "UCL Titles", "value": "1" },
       { "label": "League Titles", "value": "3" }
     ],
@@ -419,8 +425,8 @@ COACHES = [
       { "name": "Atletico Madrid", "years": "2011-Present" }
     ],
     "stats": [
-      { "label": "Win %", "value": "59.0%" },
-      { "label": "Matches", "value": "680+" },
+      { "label": "Win %", "value": "58.8%" },
+      { "label": "Matches", "value": "1000+" },
       { "label": "Europa Leagues", "value": "2" },
       { "label": "La Liga Titles", "value": "2" }
     ],
