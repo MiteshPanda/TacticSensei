@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { teamsData } from "@/data/profiles/teamsData";
 import { FavoriteButton } from "@/components/ui/FavoriteButton";
+import { teamFlagUrl } from "@/lib/flags";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -55,13 +56,7 @@ export default async function TeamDetailPage({ params }: PageProps) {
           <div className="absolute inset-0 z-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`https://flagcdn.com/w640/${team.slug === "argentina" ? "ar" :
-                  team.slug === "brazil" ? "br" :
-                    team.slug === "france" ? "fr" :
-                      team.slug === "germany" ? "de" :
-                        team.slug === "spain" ? "es" :
-                          team.slug === "portugal" ? "pt" : "un"
-                }.png`}
+              src={teamFlagUrl(team.slug)}
               alt={`${team.name} Flag`}
               className="w-full h-full object-cover opacity-40 transition-transform duration-500 hover:scale-105"
             />
@@ -74,14 +69,8 @@ export default async function TeamDetailPage({ params }: PageProps) {
               <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full overflow-hidden border-2 border-border-light bg-accent-light transition-transform duration-300 hover:scale-110">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://flagcdn.com/w240/${team.slug === "argentina" ? "ar" :
-                      team.slug === "brazil" ? "br" :
-                        team.slug === "france" ? "fr" :
-                          team.slug === "germany" ? "de" :
-                            team.slug === "spain" ? "es" :
-                              team.slug === "portugal" ? "pt" : "un"
-                    }.png`}
-                  alt={`${team.name} Flag Circle`}
+                  src={teamFlagUrl(team.slug, 320)}
+                  alt=""
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -1,30 +1,13 @@
 import Link from "next/link";
 import type { TeamProfile } from "@/data/profiles/teamsData";
+import { teamFlagUrl } from "@/lib/flags";
 import TiltCard from "./TiltCard";
-
-const FLAG_CODES: Record<string, string> = {
-  argentina: "ar",
-  brazil: "br",
-  france: "fr",
-  germany: "de",
-  spain: "es",
-  portugal: "pt",
-  england: "gb-eng",
-  netherlands: "nl",
-  italy: "it",
-  croatia: "hr",
-  morocco: "ma",
-  japan: "jp",
-  usa: "us",
-  senegal: "sn",
-};
 
 interface TeamCardProps {
   team: TeamProfile;
 }
 
 export default function TeamCard({ team }: TeamCardProps) {
-  const code = FLAG_CODES[team.slug] ?? "un";
   const stars = team.squad.slice(0, 3);
 
   return (
@@ -33,7 +16,7 @@ export default function TeamCard({ team }: TeamCardProps) {
         <div className="relative h-44">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`https://flagcdn.com/w640/${code}.png`}
+            src={teamFlagUrl(team.slug)}
             alt=""
             loading="lazy"
             className="h-full w-full object-cover"
